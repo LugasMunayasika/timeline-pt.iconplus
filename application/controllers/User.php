@@ -17,7 +17,7 @@ class User extends CI_Controller {
 			$data['primary_view'] = 'user/user_view';
 			$data['list'] = $this->User_model->getList();
 			$data['total'] = $this->User_model->getCount();
-			$this->load->view('template_view', $data);	
+			$this->load->view('user/v_user', $data);	
 		}else{
 			$this->load->view('full_401_view');
 		}
