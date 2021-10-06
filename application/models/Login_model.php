@@ -16,7 +16,7 @@ class Login_model extends CI_Model {
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$now = date('d-m-Y H:i:s');
-        $kueri = $this->db->where('USERNAME', $username)->where('PASSWORD', ($password))->get('admin');
+        $kueri = $this->db->where('USERNAME', $username)->where('PASSWORD', md5($password))->get('admin');
 		// $kueri = $this->db->where('USERNAME', $username)->where('PASSWORD', md5($password))->get('admin');
 		if($kueri->num_rows() > 0){
 			$data = array(
