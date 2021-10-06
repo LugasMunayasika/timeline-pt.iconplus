@@ -49,7 +49,7 @@
                 <input type="password" class="form-control" name="password" placeholder="Password" />
               </div>
               <div>
-                <!-- <input type="submit" name="login" class="btn btn-default submit pull-right" value="Login" /> -->
+                <input type="submit" name="login" class="btn btn-default submit pull-right" value="Login" />
               </div>
 
               <div class="clearfix"></div>
