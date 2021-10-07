@@ -5,7 +5,7 @@
         </div>
     </div>
     <?php if($this->session->userdata('role')=='superadmin'): ?>
-    <a href="<?php echo base_url() ?>petugas/add" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Petugas</a>
+    <a href="<?php echo base_url() ?>user/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Petugas</a>
     <?php endif; ?>
     <div class="clearfix"></div>
     <div class="row">

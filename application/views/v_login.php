@@ -1,37 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
+  	<title>Login 08</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Login - Timeline Icon+</title>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap -->
-    <link href="<?php echo base_url() ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="<?php echo base_url() ?>assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="<?php echo base_url() ?>assets/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- Animate.css -->
-    <link href="<?php echo base_url() ?>assets/vendors/animate.css/animate.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/login/css/style.css">
 
-    <!-- Custom Theme Style -->
-    <link href="<?php echo base_url() ?>assets/build/css/custom.min.css" rel="stylesheet">
-  </head>
-
-  <body class="login">
-    <div>
-      <a class="hiddenanchor" id="signup"></a>
-      <a class="hiddenanchor" id="signin"></a>
-
-      <div class="login_wrapper">
-        <div class="animate form login_form">
-          <section class="login_content">
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-5">
+					<div class="login-wrap p-4 p-md-5">
+		      	<div class="icon d-flex fa fa-sign-in align-items-center justify-content-center">
+		      		<!-- <span class="img" img src="<?php echo base_url() ?>assets/login/images/icon+.png"></span> -->
+		      	</div>
+            <section class="login_content ">
             <form method="post" action="<?php echo base_url() ?>login/dologin">
-              <h1>Admin Login</h1>
               <?php
                 $announce = $this->session->flashdata('announce');
                 if(!empty($announce)){
@@ -42,31 +35,32 @@
                   ';
                 }
               ?>
+		      	<h3 class="text-center mb-4">Login Timeline ICON+</h3>
+						<form action="#" class="login-form">
+		      		<div class="form-group">
+              <input type="text" class="form-control rounded-left" name="username" autocomplete= "off" placeholder="Username" required>
+		      		</div>
+	            <div class="form-group d-flex">
+              <input type="password" class="form-control rounded-left" name="password" placeholder="Password" required>
+	            </div>
+	            <div class="form-group">
               <div>
-                <input type="text" class="form-control" name="username" autocomplete= "off" placeholder="Username" />
-              </div>
-              <div>
-                <input type="password" class="form-control" name="password" placeholder="Password" />
-              </div>
-              <div>
-                <input type="submit" name="login" class="btn btn-default submit pull-right" value="Login" />
+                <button type="submit" name="login" class="btn btn-primary btn-lg btn-block" value="Login">Login</button>
+                <!-- <input type="submit" name="login" class="btn btn-warning submit pull-right" value="Login" /> -->
               </div>
 
-              <div class="clearfix"></div>
+	          </form>
+	        </div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-              <div class="separator">
-                <div class="clearfix"></div>
-                <br />
+	<script src="<?php echo base_url() ?>assets/login/js/jquery.min.js"></script>
+  <script src="<?php echo base_url() ?>assets/login/js/popper.js"></script>
+  <script src="<?php echo base_url() ?>assets/login/js/bootstrap.min.js"></script>
+  <script src="<?php echo base_url() ?>assets/login/js/main.js"></script>
 
-                <div>
-                  <h1><i class="fa fa-book"></i>  Timeline</h1>
-                  <p>Copyright © <?php echo date('Y') ?> 2021 Timeline</p>
-                </div>
-              </div>
-            </form>
-          </section>
-        </div>
-      </div>
-    </div>
-  </body>
+	</body>
 </html>
+

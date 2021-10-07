@@ -14,20 +14,20 @@ class User extends CI_Controller {
 	public function index(){
 		if($this->session->userdata('role') == 'superadmin') {
 			$data['title'] = 'User';
-			$data['primary_view'] = 'user/user_view';
+			$data['primary_view'] = 'user/v_user';
 			$data['list'] = $this->User_model->getList();
 			$data['total'] = $this->User_model->getCount();
-			$this->load->view('user/v_user', $data);	
+			$this->load->view('v_template', $data);	
 		}else{
 			$this->load->view('full_401_view');
 		}
 	}
 
-	public function add(){
+	public function create(){
 		if($this->session->userdata('role') == 'superadmin') {
 			$data['title'] = 'Tambah user';
-			$data['primary_view'] = 'user/add_user_view';
-			$this->load->view('template_view', $data);
+			$data['primary_view'] = 'user/create_user';
+			$this->load->view('v_template', $data);
 		}else{
 			$this->load->view('full_401_view');
 		}
@@ -48,22 +48,22 @@ class User extends CI_Controller {
 					if($this->User_model->usernameCheck($this->input->post('username')) == true){
 						if($this->User_model->insert() == true){
 							$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
-							redirect('user/add');
+							redirect('user/create');
 						}else{
 							$this->session->set_flashdata('announce', 'Gagal menyimpan data');
-							redirect('user/add');
+							redirect('user/create');
 						}
 					}else{
 						$this->session->set_flashdata('announce', 'Username tidak tersedia, silahkan pilih username lain');
-						redirect('user/add');
+						redirect('user/create');
 					}
 				}else{
 					$this->session->set_flashdata('announce', 'Password tidak sesuai');
-					redirect('user/add');
+					redirect('user/create');
 				}
 			} else {
 				$this->session->set_flashdata('announce', validation_errors());
-				redirect('user/add');
+				redirect('user/create');
 			}
 		}
 	}
@@ -114,7 +114,7 @@ class User extends CI_Controller {
 				}
 			} else {
 				$this->session->set_flashdata('announce', validation_errors());
-				redirect('user/add');
+				redirect('user/create');
 			}
 		}
 	}
@@ -134,13 +134,13 @@ class User extends CI_Controller {
 			$id = $this->input->get('tken');
 			//CHECK : Data Availability
 			if($this->User_model->checkAvailability($id) == true){
-				$data['primary_view'] = 'user/edit_user_view';
+				$data['primary_view'] = 'user/edit_v_user';
 			}else{
 				$data['primary_view'] = '404_view';
 			}
 			$data['title'] = 'Edit user';
 			$data['detail'] = $this->User_model->getDetail($id);
-			$this->load->view('template_view', $data);
+			$this->load->view('v_template', $data);
 		}else{
 			$this->load->view('full_401_view');
 		}
