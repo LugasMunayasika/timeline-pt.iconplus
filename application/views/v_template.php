@@ -80,7 +80,7 @@
                                 <?php if($this->session->userdata('role') == 'superadmin'): ?>
                                 <li>
                                     <a href="<?php echo base_url()?>petugas"><i class="fa fa-calendar"></i> WBS</a>
-                                </li>
+                                <petugas>
                                 <li>
                                     <a href="<?php echo base_url()?>petugas"><i class="fa fa fa-desktop"></i> Monitoring</a>
                                 </li>
@@ -89,7 +89,7 @@
                         </div>
                         <?php if($this->session->userdata('role')=='admin'): ?>
                             <div class="menu_section">
-                                <h3>Petugas</h3>
+                                <h3>user</h3>
                                 <ul class="nav side-menu">
                                     <li>
                                         <a href="<?php echo base_url()?>peminjaman"><i class="fa fa-arrow-up"></i> Peminjaman</a>
@@ -288,7 +288,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"><i class="fa fa-list-alt"></i>  Profil Petugas</h4>
+                <h4 class="modal-title"><i class="fa fa-list-alt"></i>  Profil user</h4>
             </div>
             <div class="modal-body">
                 <div id="contents" class="container"></div>

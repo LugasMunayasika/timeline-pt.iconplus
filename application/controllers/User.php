@@ -85,31 +85,31 @@ class User extends CI_Controller {
 						if($this->User_model->usernameChecks($id) == true){
 							if($this->User_model->inserts($id, $psw) == true){
 								$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
-								redirect('user/edit?tken='.$id);
+								redirect('user/update?tken='.$id);
 							}else{
 								$this->session->set_flashdata('announce', 'Gagal menyimpan data');
-								redirect('user/edit?tken='.$id);
+								redirect('user/update?tken='.$id);
 							}
 						}else{
 							$this->session->set_flashdata('announce', 'Username tidak tersedia, silahkan pilih username lain');
-							redirect('user/edit?tken='.$id);
+							redirect('user/update?tken='.$id);
 						}
 					}else{
 						$this->session->set_flashdata('announce', 'Password tidak sesuai');
-						redirect('user/edit?tken='.$id);
+						redirect('user/update?tken='.$id);
 					}
 				}else{
 					if($this->User_model->usernameChecks($id) == true){
 						if($this->User_model->inserts($id, $psw) == true){
 							$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
-							redirect('user/edit?tken='.$id);
+							redirect('user/update?tken='.$id);
 						}else{
 							$this->session->set_flashdata('announce', 'Gagal menyimpan data');
-							redirect('user/edit?tken='.$id);
+							redirect('user/update?tken='.$id);
 						}
 					}else{
 						$this->session->set_flashdata('announce', 'Username tidak tersedia, silahkan pilih username lain');
-						redirect('user/edit?tken='.$id);
+						redirect('user/update?tken='.$id);
 					}
 				}
 			} else {
@@ -129,16 +129,16 @@ class User extends CI_Controller {
 		}
 	}
 
-	public function edit(){
+	public function update(){
 		if($this->session->userdata('role') == 'superadmin') {
 			$id = $this->input->get('tken');
 			//CHECK : Data Availability
 			if($this->User_model->checkAvailability($id) == true){
-				$data['primary_view'] = 'user/edit_v_user';
+				$data['primary_view'] = 'user/update_user';
 			}else{
 				$data['primary_view'] = '404_view';
 			}
-			$data['title'] = 'Edit user';
+			$data['title'] = 'update user';
 			$data['detail'] = $this->User_model->getDetail($id);
 			$this->load->view('v_template', $data);
 		}else{

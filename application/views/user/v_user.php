@@ -1,18 +1,18 @@
 <div class="">
     <div class="page-title" style="padding: 8px">
         <div class="title_left">
-            <h1><i class="fa fa-user"></i>  Petugas</h1>
+            <h1><i class="fa fa-user"></i> User</h1>
         </div>
     </div>
     <?php if($this->session->userdata('role')=='superadmin'): ?>
-    <a href="<?php echo base_url() ?>user/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Petugas</a>
+    <a href="<?php echo base_url() ?>user/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> TambahUser</a>
     <?php endif; ?>
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>List Data <small>Petugas</small></h2>
+                    <h2>List Data <small>User</small></h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -59,10 +59,10 @@
                                 <td><?php echo $petugasList->LAST_LOGIN ?></td>
                                 <?php if($this->session->userdata('role')=='superadmin'): ?>
                                 <td>
-                                    <a href="<?php echo base_url() ?>petugas/edit?tken=<?php echo $petugasList->ID_ADMIN ?>" class="btn btn-info btn-xs">
+                                    <a href="<?php echo base_url() ?>user/update?tken=<?php echo $petugasList->ID_ADMIN ?>" class="btn btn-info btn-xs">
                                         <i class="fa fa-edit"> Edit</i>
                                     </a>
-                                    <button class="btn btn-danger btn-xs" onclick="deletePetugas()">
+                                    <button class="btn btn-danger btn-xs" onclick="deleteUser()">
                                         <i class="fa fa-trash"> Delete</i>
                                     </button>
                                 </td>
@@ -80,7 +80,7 @@
 </div>
 
 <script>
-function deletePetugas() {
+function deleteUser() {
     swal({
         title: "Apakah anda yakin ingin menghapus data ?",
         text: "Data tidak bisa di kembalikan",
@@ -91,7 +91,7 @@ function deletePetugas() {
         closeOnConfirm: false
     },
     function() {
-        window.location.href = "<?php echo base_url() ?>petugas/delete?rcgn=<?php echo $petugasList->ID_ADMIN ?>";
+        window.location.href = "<?php echo base_url() ?>user/delete?rcgn=<?php echo $petugasList->ID_ADMIN ?>";
     });
 }
 </script>
