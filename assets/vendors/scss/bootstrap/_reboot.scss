@@ -60,7 +60,7 @@ body {
 //
 // Credit: https://github.com/suitcss/base
 [tabindex="-1"]:focus {
-  outline: 0 !important;
+  outline: 0 ;
 }
 
 
@@ -479,5 +479,5 @@ template {
 // Always hide an element with the `hidden` HTML attribute (from PureCSS).
 // Needed for proper display in IE 10-.
 [hidden] {
-  display: none !important;
+  display: none ;
 }

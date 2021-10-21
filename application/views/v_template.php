@@ -44,7 +44,7 @@
             <div class="col-md-3 left_col menu_fixed">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <!-- <a href="#" class="site_title"><i class="fa fa-book"></i> <span>Timeline ICON+</span></a> -->
+                        <!-- <a href="#" class="site_title"><i class="fa fa-tasks"></i> <span>Timeline ICON+</span></a> -->
                         <a href="#" class="site_title"> <span>Timeline ICON+</span></a>
                     </div>
                     <div class="clearfix"></div>
@@ -72,18 +72,19 @@
                                     <a href="<?php echo base_url()?>user"><i class="fa fa-users"></i> User</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url()?>buku"><i class="fa fa-tasks"></i> Data Penugasan</a>
+                                    <a href="<?php echo base_url()?>penugasan"><i class="fa fa-tasks"></i> Data Penugasan</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="<?php echo base_url()?>petugas"><i class="fa fa-pencil-square-o "></i> Koreksi Penugasan</a>
-                                </li>
-                                <?php if($this->session->userdata('role') == 'superadmin'): ?>
+                                </li> -->
                                 <li>
                                     <a href="<?php echo base_url()?>petugas"><i class="fa fa-calendar"></i> WBS</a>
                                 <petugas>
                                 <li>
-                                    <a href="<?php echo base_url()?>petugas"><i class="fa fa fa-desktop"></i> Monitoring</a>
+                                    <a href="<?php echo base_url()?>petugas"><i class="fa fa fa-desktop"></i> Timesheet</a>
                                 </li>
+                                <?php if($this->session->userdata('role') == 'superadmin'): ?>
+                                
                                 <?php endif;?>
                             </ul>
                         </div>
@@ -100,7 +101,7 @@
                                 </ul>
                             </div>
                         <?php endif; ?>
-                        <?php if($this->session->userdata('role')=='superadmin'): ?>
+                        <!-- <?php if($this->session->userdata('role')=='superadmin'): ?>
                             <div class="menu_section">
                                 <h3>Admin</h3>
                                 <ul class="nav side-menu">
@@ -112,7 +113,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        <?php endif; ?>
+                        <?php endif; ?> -->
                     </div>
                     <!-- /sidebar menu -->
                     <!-- /menu footer buttons -->
@@ -304,7 +305,7 @@ $(document).ready(function(){
         var user_id = $(this).attr("id");
         $("#profileModal").modal("show");
         $.ajax({
-            url: "<?php echo base_url() ?>profile/detail",
+            url: "<?php echo base_url() ?>profil/detail",
             type: "POST",
             data: "id="+user_id,
             cache: false,

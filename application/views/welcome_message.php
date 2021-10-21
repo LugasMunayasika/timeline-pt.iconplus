@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
+		 font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 		font-size: 12px;
 		background-color: #f9f9f9;
 		border: 1px solid #D0D0D0;

@@ -1,9 +1,9 @@
 table.dataTable {
   clear: both;
-  margin-top: 6px !important;
-  margin-bottom: 6px !important;
-  max-width: none !important;
-  border-collapse: separate !important;
+  margin-top: 6px ;
+  margin-bottom: 6px ;
+  max-width: none ;
+  border-collapse: separate ;
 }
 table.dataTable td,
 table.dataTable th {
@@ -115,13 +115,13 @@ table.dataTable thead .sorting_desc_disabled:after {
 }
 
 div.dataTables_scrollHead table.dataTable {
-  margin-bottom: 0 !important;
+  margin-bottom: 0 ;
 }
 
 div.dataTables_scrollBody table {
   border-top: none;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+  margin-top: 0 ;
+  margin-bottom: 0 ;
 }
 div.dataTables_scrollBody table thead .sorting:after,
 div.dataTables_scrollBody table thead .sorting_asc:after,
@@ -134,7 +134,7 @@ div.dataTables_scrollBody table tbody tr:first-child td {
 }
 
 div.dataTables_scrollFoot table {
-  margin-top: 0 !important;
+  margin-top: 0 ;
   border-top: none;
 }
 

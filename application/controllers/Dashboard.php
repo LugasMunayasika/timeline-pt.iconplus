@@ -15,16 +15,6 @@ class Dashboard extends CI_Controller {
 		$data = array(
 			'title'			=> 'Dashboard',
 			'primary_view'	=> 'v_dashboard',
-			'agtCount'		=> $this->Dashboard_model->getAgtCount(),
-			'bkCount'		=> $this->Dashboard_model->getBookCount(),
-			'ptgCount'		=> $this->Dashboard_model->getPtgCount(),
-			'trnCount'		=> $this->Dashboard_model->getTransCount(),
-			'pnjCount'		=> $this->Dashboard_model->getPinjamCount(),
-			'kmbCount'		=> $this->Dashboard_model->getKmbCount(),
-			'agtList'		=> $this->Dashboard_model->getAgtList(),
-			'bkList'		=> $this->Dashboard_model->getBkList(),
-			'ptgList'		=> $this->Dashboard_model->getPtgList(),
-			'trnList'		=> $this->Dashboard_model->getTrnList()
 		);
 		$this->load->view('v_template', $data);
 	}
@@ -40,14 +30,14 @@ class Dashboard extends CI_Controller {
 		redirect('welcome');
 	}
 
-	public function profile(){
+	public function profil(){
 		$uname = $this->input->get('usr');
 		$data = array(
-			'title'			=> $uname.'.s Profile',
+			'title'			=> $uname.'.s Profil',
 			'primary_view'	=> 'profile_view',
 		);
 		if($this->Dashboard_model->checkUser($uname) == true){
-			$this->load->view('template_view', $data);
+			$this->load->view('v_template', $data);
 		}else{
 			$this->load->view('full_404_view');
 		}

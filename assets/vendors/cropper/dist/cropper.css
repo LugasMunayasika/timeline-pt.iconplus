@@ -18,7 +18,7 @@
       -ms-user-select: none;
           user-select: none;
 
-  direction: ltr !important;
+  direction: ltr ;
   -ms-touch-action: none;
       touch-action: none;
   -webkit-tap-highlight-color: transparent;
@@ -29,13 +29,13 @@
   display: block;
 
   width: 100%;
-  min-width: 0 !important;
-  max-width: none !important;
+  min-width: 0 ;
+  max-width: none ;
   height: 100%;
-  min-height: 0 !important;
-  max-height: none !important;
+  min-height: 0 ;
+  max-height: none ;
 
-  image-orientation: 0deg !important;
+  image-orientation: 0deg ;
 }
 
 .cropper-wrap-box,
@@ -360,7 +360,7 @@
 }
 
 .cropper-hidden {
-  display: none !important;
+  display: none ;
 }
 
 .cropper-move {

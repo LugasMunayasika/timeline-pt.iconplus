@@ -174,7 +174,7 @@ only screen and (                min-resolution: 2dppx) {
 	
 	/* logo */
     .navbar-brand {
-    	background-image: url(../img/logo@2x.png) !important; background-repeat: no-repeat !important; background-size: 162px 36px !important;
+    	background-image: url(../img/logo@2x.png) ; background-repeat: no-repeat ; background-size: 162px 36px ;
     }
 	
 }

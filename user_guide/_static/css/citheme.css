@@ -1,9 +1,9 @@
 @import 'theme.css';
 
 .highlighted {
-	padding: 0px !important;
-	font-weight: inherit !important;
-	background-color: #f1d40f !important;
+	padding: 0px ;
+	font-weight: inherit ;
+	background-color: #f1d40f ;
 }
 
 #nav {

@@ -177,12 +177,12 @@
 }
 
 .swMain ul.anchor li a.error {
-  color:#6c6c6c !important;  
-  background: #f08f75 !important;
-  border: 1px solid #fb3500 !important;      
+  color:#6c6c6c ;  
+  background: #f08f75 ;
+  border: 1px solid #fb3500 ;      
 }
 .swMain ul.anchor li a.error:hover {
-  color:#000 !important;       
+  color:#000 ;       
 }
 
 .swMain .buttonNext {
@@ -202,9 +202,9 @@
   -webkit-border-radius: 5px;    
 }
 .swMain .buttonDisabled {
-  color:#F8F8F8  !important;
-  background-color: #CCCCCC !important;
-  border: 1px solid #CCCCCC  !important;
+  color:#F8F8F8  ;
+  background-color: #CCCCCC ;
+  border: 1px solid #CCCCCC  ;
   cursor:text;    
 }
 .swMain .buttonPrevious {

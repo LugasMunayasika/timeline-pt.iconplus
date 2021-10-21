@@ -14,7 +14,7 @@
   .input-mini {
       background-color: #eee;
       border: 1px solid #ccc;
-      box-shadow: none !important;
+      box-shadow: none ;
 
       &.active {
         border: 1px solid #ccc;
@@ -36,7 +36,7 @@
       height: 30px;
       border: 1px solid #ADB2B5;
       line-height: 30px;
-      border-radius: 0px !important;
+      border-radius: 0px ;
     }
 
     &.monthselect {
@@ -70,7 +70,7 @@
 
     .calendar-table {
       width: 224px;
-      padding: 0 0 4px 0 !important;
+      padding: 0 0 4px 0 ;
 
       thead {
         & tr:first-child {

@@ -232,7 +232,7 @@ div.body td {
 }
 
 .first {
-    margin-top: 0 !important;
+    margin-top: 0 ;
 }
 
 p.rubric {
@@ -348,7 +348,7 @@ table.docutils td, table.docutils th {
 }
 
 table.footnote td, table.footnote th {
-    border: 0 !important;
+    border: 0 ;
 }
 
 th {
@@ -386,7 +386,7 @@ div.figure p.caption span.caption-text {
 /* -- field list styles ----------------------------------------------------- */
 
 table.field-list td, table.field-list th {
-    border: 0 !important;
+    border: 0 ;
 }
 
 .field-list ul {
@@ -626,7 +626,7 @@ div.math:hover a.headerlink {
     div.document,
     div.documentwrapper,
     div.bodywrapper {
-        margin: 0 !important;
+        margin: 0 ;
         width: 100%;
     }
 

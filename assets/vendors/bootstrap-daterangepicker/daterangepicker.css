@@ -266,4 +266,4 @@
   .daterangepicker.rtl .ranges {
     float: right; }
   .daterangepicker .calendar.left {
-    clear: none !important; } }
+    clear: none ; } }
