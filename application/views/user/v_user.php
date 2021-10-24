@@ -48,7 +48,10 @@
                         <?php foreach ($list as $petugasList):?>
                             <?php
                                 $rl = null;
-                                if($petugasList->ROLE == 'superadmin'){$rl='Admin';}else{$rl='Petugas';}
+                                if($petugasList->ROLE == 'superadmin'){$rl='Direktur';}
+                                if($petugasList->ROLE == 'admin'){$rl='Manajer';}
+                                if($petugasList->ROLE == 'lowadmin'){$rl='Karyawan';}
+                                // else{$rl='Direktur';}
                             ?>
                             <tr>
                                 <td><?php echo $no ?></td>

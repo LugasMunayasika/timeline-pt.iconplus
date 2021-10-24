@@ -8,12 +8,15 @@ class Penugasan_model extends CI_Model {
 			'ID_TUGAS'		=> $this->input->post('id_tugas'),
 			// 'ID_TUGAS'		=> $this->generateID(),
 			'NO_SURAT'		=> $this->input->post('no_surat'),
+			'PERIHAL'		=> $this->input->post('perihal'),
 			'TGL_SURAT'			=> $this->input->post('tgl_surat'),
 			'NAMA_PEKERJAAN'		=> $this->input->post('nama_pekerjaan'),
 			'PEMBERI_KERJA'		=> $this->input->post('pemberi_kerja'),
 			'KATEGORI'			=> $this->input->post('kategori'),
 			'PIC'			=> $this->input->post('pic'),
 			'TGL_SELESAI'		=> $this->input->post('tgl_selesai'),
+			'DOKUMEN'		=> $this->input->post('dokumen'),
+			'STATUS'		=> $this->input->post('status'),
 			 );
 
 		$this->db->insert('tugas', $data);
@@ -26,14 +29,17 @@ class Penugasan_model extends CI_Model {
 
 	public function update($id){
 		$data = array(
-			// 'ID_TUGAS'		=> $this->input->post('id_tugas'),
+			'ID_TUGAS'		=> $this->input->post('id_tugas'),
 			'NO_SURAT'		=> $this->input->post('no_surat'),
+			'PERIHAL'		=> $this->input->post('perihal'),
 			'TGL_SURAT'			=> $this->input->post('tgl_surat'),
 			'NAMA_PEKERJAAN'		=> $this->input->post('nama_pekerjaan'),
 			'PEMBERI_KERJA'		=> $this->input->post('pemberi_kerja'),
 			'KATEGORI'			=> $this->input->post('kategori'),
 			'PIC'			=> $this->input->post('pic'),
 			'TGL_SELESAI'		=> $this->input->post('tgl_selesai'),
+			'DOKUMEN'		=> $this->input->post('dokumen'),
+			'STATUS'		=> $this->input->post('status'),
 			 );
 
 		$this->db->where('ID_TUGAS', $id)->update('tugas', $data);

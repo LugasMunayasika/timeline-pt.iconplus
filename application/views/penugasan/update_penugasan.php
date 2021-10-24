@@ -42,6 +42,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Perihal
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" name="perihal" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tanggal Surat
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -87,6 +94,23 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="date" name="tgl_selesai" value="<?php echo $detail->TGL_SELESAI ?>" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Dokumen</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" name="dokumen" class="form-control col-md-7 col-xs-12">
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Status
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select class="form-control" name="status">
+                                            <option value="sukses">Sukses</option>
+                                            <option value="pending">Pending</option>
+                                            <option value="gagal">Gagal</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="ln_solid"></div>

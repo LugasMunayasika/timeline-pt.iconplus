@@ -39,7 +39,7 @@ class Dashboard extends CI_Controller {
 		if($this->Dashboard_model->checkUser($uname) == true){
 			$this->load->view('v_template', $data);
 		}else{
-			$this->load->view('full_404_view');
+			// $this->load->view('full_404_view');
 		}
 	}
 

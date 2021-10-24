@@ -32,7 +32,7 @@
                                 }
                             }
                         ?>
-                            <form method="post" action="<?php echo base_url() ?>user/submits" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                            <form method="post" action="<?php echo base_url() ?>user/submits" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" autocomplete= "off" >
                                 <input type="hidden" name="ids" value="<?php echo $detail->ID_ADMIN ?>">
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama Lengkap
@@ -47,8 +47,9 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                     <?php $role = $detail->ROLE ?>
                                         <select class="form-control" name="role">
-                                            <option <?php if($role=='admin'){echo 'selected="selected"';} ?> value="admin">Pegawai</option>
-                                            <option <?php if($role=='superadmin'){echo 'selected="selected"';} ?> value="superadmin">Admin</option>
+                                            <option <?php if($role=='superadmin'){echo 'selected="selected"';} ?> value="superadmin">Direktur</option>
+                                            <option <?php if($role=='admin'){echo 'selected="selected"';} ?> value="admin">Manajer</option>
+                                            <option <?php if($role=='lowadmin'){echo 'selected="selected"';} ?> value="lowadmin">karyawan</option>
                                         </select>
                                     </div>
                                 </div>

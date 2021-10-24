@@ -1,7 +1,7 @@
 <div class="">
     <div class="page-title" style="padding: 8px">
         <div class="title_left">
-            <h1><i class="fa fa-tasks"></i>Tambah Data Penugasan</h1>
+            <h1><i class="fa fa-tasks"></i>   Tambah Data Penugasan</h1>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -34,7 +34,7 @@
                         ?>
                             <form method="post" action="<?php echo base_url() ?>penugasan/submit" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">ID Penugasan
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">ID Tugas
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" name="id_tugas" class="form-control col-md-7 col-xs-12"></div>
@@ -44,6 +44,13 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" name="no_surat" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Perihal
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" name="perihal" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -92,6 +99,24 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="date" name="tgl_selesai" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Dokumen
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" name="dokumen" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Status
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select class="form-control" name="status">
+                                            <option value="sukses">Sukses</option>
+                                            <option value="pending">Pending</option>
+                                            <option value="gagal">Gagal</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="ln_solid"></div>

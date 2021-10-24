@@ -38,7 +38,7 @@
 		      	<h3 class="text-center mb-4">Login Timeline ICON+</h3>
 						<form action="#" class="login-form">
 		      		<div class="form-group">
-              <input type="text" class="form-control rounded-left" name="username" autocomplete= "off" placeholder="Username" required>
+              		<input type="text" class="form-control rounded-left" name="username" autocomplete= "off" placeholder="Username" required>
 		      		</div>
 	            <div class="form-group d-flex">
               <input type="password" class="form-control rounded-left" name="password" placeholder="Password" required>

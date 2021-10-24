@@ -28,14 +28,42 @@ class Penugasan extends CI_Controller {
 
 	public function submit(){
 		if($this->input->post('submit')){
-			$this->form_validation->set_rules('id_tugas', 'ID Penugasan', 'trim|required');
+			$this->form_validation->set_rules('id_tugas', 'ID Tugas', 'trim|required');
 			$this->form_validation->set_rules('no_surat', 'No Surat penugasan', 'trim|required');
+			$this->form_validation->set_rules('perihal', 'Perihal', 'trim|required');
 			$this->form_validation->set_rules('tgl_surat', 'Tgl Surat', 'trim|required');
 			$this->form_validation->set_rules('nama_pekerjaan', 'Nama Pekerjaan', 'trim|required');
 			$this->form_validation->set_rules('pemberi_kerja', 'Pemberi Kerja', 'trim|required');
 			$this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
 			$this->form_validation->set_rules('pic', 'PIC', 'trim|required');
 			$this->form_validation->set_rules('tgl_selesai', 'Tgl Target Penyelesaian', 'trim|required');
+			$this->form_validation->set_rules('dokumen', 'Dokumen', 'trim|required');
+			$this->form_validation->set_rules('status', 'Status', 'trim|required');
+
+			if ($this->form_validation->run() == true) {
+				$config['upload_path'] = './assets/doc/upload/';
+				$config['allowed_types'] = 'doc|docx|pdf';
+				$config['max_size']  = '2000';
+				
+				$this->load->library('upload', $config);
+				$id_petugas = $this->User_model->getID($this->session->userdata('username'));
+
+				if ($this->upload->do_upload('dokumen') == true){
+					if($this->Penugasan_model->update($id_petugas, $this->upload->data()) == true){
+						$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
+						redirect('penugasan/update?change_key='.$this->input->post('id').'&signup=0');
+					}else{
+						$this->session->set_flashdata('announce', 'Gagal menyimpan data');
+						redirect('penugasan/update?change_key='.$this->input->post('id').'&signup=0');
+					}
+				}else{
+					$this->session->set_flashdata('announce', $this->upload->display_errors());
+					redirect('penugasan/update?change_key='.$this->input->post('id').'&signup=0');
+				}
+			} else {
+				$this->session->set_flashdata('announce', validation_errors());
+				redirect('penugasan/update?change_key='.$this->input->post('id').'&signup=0');
+			}
 
 			if ($this->form_validation->run() == true) {
 				//GET : Petugas ID
@@ -58,19 +86,38 @@ class Penugasan extends CI_Controller {
 
 	public function submits(){
 		if($this->input->post('submit')){
-			$this->form_validation->set_rules('id_tugas', 'ID Penugasan', 'trim|required');
+			$this->form_validation->set_rules('id_tugas', 'ID Tugas', 'trim|required');
 			$this->form_validation->set_rules('no_surat', 'No Surat penugasan', 'trim|required');
+			$this->form_validation->set_rules('perihal', 'Perihal', 'trim|required');
 			$this->form_validation->set_rules('tgl_surat', 'Tgl Surat', 'trim|required');
 			$this->form_validation->set_rules('nama_pekerjaan', 'Nama Pekerjaan', 'trim|required');
-			$this->form_validation->set_rules('pemberi_kerja', 'Pemberi Kerja', 'trim|required|numeric');
+			$this->form_validation->set_rules('pemberi_kerja', 'Pemberi Kerja', 'trim|required');
 			$this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
 			$this->form_validation->set_rules('pic', 'PIC', 'trim|required');
 			$this->form_validation->set_rules('tgl_selesai', 'Tgl Target Penyelesaian', 'trim|required');
+			$this->form_validation->set_rules('dokumen', 'Dokumen', 'trim|required');
+			$this->form_validation->set_rules('status', 'Status', 'trim|required');
+
 
 			if ($this->form_validation->run() == true) {
+
+				$config['upload_path'] = './assets/doc/upload/';
+				$config['allowed_types'] = 'doc|docx|pdf';
+				$config['max_size']  = '2000';
+				$this->load->library('upload', $config);
+				$id_petugas = $this->User_model->getID($this->session->userdata('username'));
 				if($this->Penugasan_model->update($this->input->post('id')) == true){
 					$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
 					redirect('penugasan/update?idtf='.$this->input->post('id'));
+					if ($this->upload->do_upload('dokumen') == true){
+						if($this->Penugasan_model->update($id_petugas, $this->upload->data()) == true){
+							$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
+							redirect('penugasan/update?change_key='.$this->input->post('id').'&signup=0');
+						}
+					}else{
+						$this->session->set_flashdata('announce', 'Gagal menyimpan data');
+						redirect('penugasan/update?change_key='.$this->input->post('id').'&signup=0');
+					}
 				}else{
 					$this->session->set_flashdata('announce', 'Gagal menyimpan data');
 					redirect('penugasan/update?idtf='.$this->input->post('id'));
@@ -88,7 +135,7 @@ class Penugasan extends CI_Controller {
 		if($this->Penugasan_model->checkAvailability($id) == true){
 			$data['primary_view'] = 'penugasan/update_penugasan';
 		}else{
-			$data['primary_view'] = '404_view';
+			// $data['primary_view'] = '404_view';
 		}
 		$data['title'] = 'Update penugasan';
 		$data['detail'] = $this->Penugasan_model->getDetail($id);

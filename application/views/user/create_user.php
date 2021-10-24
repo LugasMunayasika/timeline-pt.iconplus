@@ -32,7 +32,7 @@
                                 }
                             }
                         ?>
-                            <form method="post" action="<?php echo base_url() ?>User/submit" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                            <form method="post" action="<?php echo base_url() ?>User/submit" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" autocomplete= "off" >
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama Lengkap
                                     </label>
@@ -45,8 +45,9 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <select class="form-control" name="role">
-                                            <option value="admin">Petugas</option>
-                                            <option value="superadmin">Admin</option>
+                                            <option value="superadmin">Direktur</option>
+                                            <option value="admin">Manajer</option>
+                                            <option value="lowadmin">Karyawan</option>                                            
                                         </select>
                                     </div>
                                 </div>

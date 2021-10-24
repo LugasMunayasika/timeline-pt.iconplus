@@ -136,7 +136,7 @@ class User extends CI_Controller {
 			if($this->User_model->checkAvailability($id) == true){
 				$data['primary_view'] = 'user/update_user';
 			}else{
-				$data['primary_view'] = '404_view';
+				// $data['primary_view'] = '404_view';
 			}
 			$data['title'] = 'update user';
 			$data['detail'] = $this->User_model->getDetail($id);

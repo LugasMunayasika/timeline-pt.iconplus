@@ -33,14 +33,17 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>ID Penugasan</th>
+                                <th>ID Tugas</th>
                                 <th>No Surat</th>
+                                <th>Perihal</th>
                                 <th>Tgl Surat</th>
                                 <th>Nama Pekerjaan</th>
                                 <th>Pemberi Kerja</th>
                                 <th>Kategori</th>
                                 <th>PIC</th>
                                 <th>Target Selesai</th>
+                                <!-- <th>Dokumen</th> -->
+                                <th>Status</th>
                                 <?php if($this->session->userdata('role')=='superadmin'): ?>
                                 <th>Action</th>
                                 <?php endif; ?>
@@ -53,14 +56,20 @@
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $penugasanList->ID_TUGAS ?></td>
                                 <td><?php echo $penugasanList->NO_SURAT  ?></td>
+                                <td><?php echo $penugasanList->PERIHAL  ?></td>
                                 <td><?php echo $penugasanList->TGL_SURAT ?></td>
                                 <td><?php echo $penugasanList->NAMA_PEKERJAAN ?></td>
                                 <td><?php echo $penugasanList->PEMBERI_KERJA ?></td>
                                 <td><?php echo $penugasanList->KATEGORI ?></td>
                                 <td><?php echo $penugasanList->PIC ?></td>
                                 <td><?php echo $penugasanList->TGL_SELESAI ?></td>
+                                <!-- <td><?php echo $penugasanList->DOKUMEN  ?></td> -->
+                                <td><?php echo $penugasanList->STATUS  ?></td>
                                 <?php if($this->session->userdata('role')=='superadmin'): ?>
-                                <td>
+                                <td width="10%">
+                                    <a href="<?php echo $penugasanList->DOKUMEN ?>" class="btn btn-warning btn-xs">
+                                        <i class="fa fa-file"></i>
+                                    </a>
                                     <a href="<?php echo base_url() ?>penugasan/update?idtf=<?php echo $penugasanList->ID_TUGAS ?>" class="btn btn-info btn-xs">
                                         <i class="fa fa-edit"></i>
                                     </a>
