@@ -1,9 +1,11 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Penugasan_model extends CI_Model {
+class Penugasan_model extends CI_Model
+{
 
-	public function insert($id_admin){
+	public function insert($id_admin)
+	{
 		$data = array(
 			'ID_TUGAS'		=> $this->input->post('id_tugas'),
 			// 'ID_TUGAS'		=> $this->generateID(),
@@ -16,18 +18,19 @@ class Penugasan_model extends CI_Model {
 			'PIC'			=> $this->input->post('pic'),
 			'TGL_SELESAI'		=> $this->input->post('tgl_selesai'),
 			'DOKUMEN'		=> $this->input->post('dokumen'),
-			'STATUS'		=> $this->input->post('status'),
-			 );
+
+		);
 
 		$this->db->insert('tugas', $data);
-		if($this->db->affected_rows() > 0){
+		if ($this->db->affected_rows() > 0) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
 
-	public function update($id){
+	public function update($id)
+	{
 		$data = array(
 			'ID_TUGAS'		=> $this->input->post('id_tugas'),
 			'NO_SURAT'		=> $this->input->post('no_surat'),
@@ -40,22 +43,24 @@ class Penugasan_model extends CI_Model {
 			'TGL_SELESAI'		=> $this->input->post('tgl_selesai'),
 			'DOKUMEN'		=> $this->input->post('dokumen'),
 			'STATUS'		=> $this->input->post('status'),
-			 );
+		);
 
 		$this->db->where('ID_TUGAS', $id)->update('tugas', $data);
-		if($this->db->affected_rows() > 0){
+		if ($this->db->affected_rows() > 0) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
 
-	public function getCount(){
+	public function getCount()
+	{
 		return $this->db->count_all('tugas');
 	}
 
-	public function getList(){
-		return $query = $this->db->order_by('ID_TUGAS','ASC')->get('tugas')->result();
+	public function getList()
+	{
+		return $query = $this->db->order_by('ID_TUGAS', 'ASC')->get('tugas')->result();
 	}
 
 	// public function generateID(){
@@ -66,29 +71,30 @@ class Penugasan_model extends CI_Model {
 	// 	return $kd.sprintf('%03s', $next);
 	// }
 
-	public function getDetail($id){
+	public function getDetail($id)
+	{
 		return $this->db->where('ID_TUGAS', $id)->get('tugas')->row();
 	}
 
-	public function delete($id){
+	public function delete($id)
+	{
 		$this->db->where('ID_TUGAS', $id)->delete('tugas');
-		if($this->db->affected_rows() > 0){
+		if ($this->db->affected_rows() > 0) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
 
-	public function checkAvailability($id){
+	public function checkAvailability($id)
+	{
 		$query = $this->db->where('ID_TUGAS', $id)->get('tugas');
-		if($query->num_rows() > 0){
+		if ($query->num_rows() > 0) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
-
-
 }
 
 /* End of file Penugasan_model.php */

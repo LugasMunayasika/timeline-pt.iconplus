@@ -66,50 +66,50 @@
                             <h3>Data Master</h3>
                             <ul class="nav side-menu">
                                 <li>
-                                    <a href="<?php echo base_url()?>dashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
+                                    <a href="<?php echo base_url() ?>dashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url()?>user"><i class="fa fa-users"></i> User</a>
+                                    <a href="<?php echo base_url() ?>user"><i class="fa fa-users"></i> User</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url()?>penugasan"><i class="fa fa-tasks"></i> Data Penugasan</a>
+                                    <a href="<?php echo base_url() ?>penugasan"><i class="fa fa-tasks"></i> Data Penugasan</a>
                                 </li>
                                 <!-- <li>
-                                    <a href="<?php echo base_url()?>petugas"><i class="fa fa-pencil-square-o "></i> Koreksi Penugasan</a>
+                                    <a href="<?php echo base_url() ?>petugas"><i class="fa fa-pencil-square-o "></i> Koreksi Penugasan</a>
                                 </li> -->
                                 <li>
-                                    <a href="<?php echo base_url()?>petugas"><i class="fa fa-calendar"></i> WBS</a>
-                                <petugas>
+                                    <a href="<?php echo base_url() ?>wbs"><i class="fa fa-calendar"></i> WBS</a>
+
                                 <li>
-                                    <a href="<?php echo base_url()?>petugas"><i class="fa fa fa-desktop"></i> Timesheet</a>
+                                    <a href="<?php echo base_url() ?>timesheet"><i class="fa fa fa-desktop"></i> Timesheet</a>
                                 </li>
-                                <?php if($this->session->userdata('role') == 'superadmin'): ?>
-                                
-                                <?php endif;?>
+                                <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+
+                                <?php endif; ?>
                             </ul>
                         </div>
-                        <?php if($this->session->userdata('role')=='admin'): ?>
+                        <?php if ($this->session->userdata('role') == 'admin') : ?>
                             <div class="menu_section">
                                 <h3>user</h3>
                                 <ul class="nav side-menu">
                                     <li>
-                                        <a href="<?php echo base_url()?>peminjaman"><i class="fa fa-arrow-up"></i> Peminjaman</a>
+                                        <a href="<?php echo base_url() ?>peminjaman"><i class="fa fa-arrow-up"></i> Peminjaman</a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo base_url()?>pengembalian"><i class="fa fa-arrow-down"></i> Pengembalian</a>
+                                        <a href="<?php echo base_url() ?>pengembalian"><i class="fa fa-arrow-down"></i> Pengembalian</a>
                                     </li>
                                 </ul>
                             </div>
                         <?php endif; ?>
-                        <!-- <?php if($this->session->userdata('role')=='superadmin'): ?>
+                        <!-- <?php if ($this->session->userdata('role') == 'superadmin') : ?>
                             <div class="menu_section">
                                 <h3>Admin</h3>
                                 <ul class="nav side-menu">
                                     <li>
-                                        <a href="<?php echo base_url()?>transaksi"><i class="fa fa-area-chart"></i> Transaksi</a>
+                                        <a href="<?php echo base_url() ?>transaksi"><i class="fa fa-area-chart"></i> Transaksi</a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo base_url()?>notification"><i class="fa fa-bell"></i>Notifikasi</a>
+                                        <a href="<?php echo base_url() ?>notification"><i class="fa fa-bell"></i>Notifikasi</a>
                                     </li>
                                 </ul>
                             </div>
@@ -152,55 +152,58 @@
                                     <li><a href="<?php echo base_url() ?>dashboard/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                                 </ul>
                             </li>
-                            <?php if($this->session->userdata('role')=='admin'): ?>
-                            <li role="presentation" class="dropdown">
-                                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa fa-bell-o"></i>
-                                    <?php $notifCount = $this->db->count_all('notif'); ?>
-                                    <?php //if($notifCount > 0): ?>
-                                    <span class="badge bg-green"><?php echo $notifCount ?></span>
-                                    <?php //endif; ?>
-                                </a>
-                                <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                                <?php if($notifCount > 0): ?>
-                                    <?php 
-                                        $getNotifList = $this->db
-                                        ->join('admin','admin.ID_ADMIN = notif.ID_ADMIN', 'left')
-                                        ->order_by('ID_NOTIF', 'DESC')->limit(3)->get('notif')->result(); 
-                                    ?>
-                                    <?php foreach ($getNotifList as $ntf): ?>
-                                    <li>
-                                        <a>
-                                            <span class="image"><img src="<?php echo base_url() ?>assets/images/upload/profile/<?php echo $ntf->PHOTO ?>" alt="Profile Image" /></span>
-                                            <span>
-                                                <span><?php echo $ntf->FULLNAME ?></span>
-                                                <span class="time"><?php $tgl = date_create($ntf->DT);echo date_format($tgl,"D, d M Y"); ?></span>
-                                            </span>
-                                            <span class="message">
-                                              <b><?php echo $ntf->JUDUL ?>.</b> <?php echo $ntf->ISI ?>
-                                            </span>
-                                        </a>
-                                    </li>
-                                <?php endforeach; ?>
-                                    <li>
-                                        <div class="text-center">
-                                            <a href="<?php echo base_url() ?>notification/">
-                                                <strong>Lihat semua notifikasi</strong>
-                                                <i class="fa fa-angle-right"></i>
-                                            </a>
-                                        </div>
-                                    </li>
-                                <?php else: ?>
-                                    <li>
-                                        <div class="text-center">
-                                            <a>
-                                                <strong>Tidak Ada Notifkasi</strong>
-                                            </a>
-                                        </div>
-                                    </li>
-                                <?php endif; ?>
-                                </ul>
-                            </li>
+                            <?php if ($this->session->userdata('role') == 'admin') : ?>
+                                <li role="presentation" class="dropdown">
+                                    <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-bell-o"></i>
+                                        <?php $notifCount = $this->db->count_all('notif'); ?>
+                                        <?php //if($notifCount > 0): 
+                                        ?>
+                                        <span class="badge bg-green"><?php echo $notifCount ?></span>
+                                        <?php //endif; 
+                                        ?>
+                                    </a>
+                                    <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                        <?php if ($notifCount > 0) : ?>
+                                            <?php
+                                            $getNotifList = $this->db
+                                                ->join('admin', 'admin.ID_ADMIN = notif.ID_ADMIN', 'left')
+                                                ->order_by('ID_NOTIF', 'DESC')->limit(3)->get('notif')->result();
+                                            ?>
+                                            <?php foreach ($getNotifList as $ntf) : ?>
+                                                <li>
+                                                    <a>
+                                                        <span class="image"><img src="<?php echo base_url() ?>assets/images/upload/profile/<?php echo $ntf->PHOTO ?>" alt="Profile Image" /></span>
+                                                        <span>
+                                                            <span><?php echo $ntf->FULLNAME ?></span>
+                                                            <span class="time"><?php $tgl = date_create($ntf->DT);
+                                                                                echo date_format($tgl, "D, d M Y"); ?></span>
+                                                        </span>
+                                                        <span class="message">
+                                                            <b><?php echo $ntf->JUDUL ?>.</b> <?php echo $ntf->ISI ?>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            <?php endforeach; ?>
+                                            <li>
+                                                <div class="text-center">
+                                                    <a href="<?php echo base_url() ?>notification/">
+                                                        <strong>Lihat semua notifikasi</strong>
+                                                        <i class="fa fa-angle-right"></i>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        <?php else : ?>
+                                            <li>
+                                                <div class="text-center">
+                                                    <a>
+                                                        <strong>Tidak Ada Notifkasi</strong>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        <?php endif; ?>
+                                    </ul>
+                                </li>
                             <?php endif; ?>
                         </ul>
                     </nav>
@@ -210,7 +213,7 @@
             <!-- page content -->
             <div class="right_col" role="main">
                 <?php
-                    $this->load->view($primary_view);
+                $this->load->view($primary_view);
                 ?>
             </div>
             <!-- /page content -->
@@ -289,7 +292,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"><i class="fa fa-list-alt"></i>  Profil user</h4>
+                <h4 class="modal-title"><i class="fa fa-list-alt"></i> Profil user</h4>
             </div>
             <div class="modal-body">
                 <div id="contents" class="container"></div>
@@ -300,20 +303,20 @@
     </div>
 </div>
 <script>
-$(document).ready(function(){ 
-    $(".prof").click(function(){
-        var user_id = $(this).attr("id");
-        $("#profileModal").modal("show");
-        $.ajax({
-            url: "<?php echo base_url() ?>profil/detail",
-            type: "POST",
-            data: "id="+user_id,
-            cache: false,
-            success: function(data){
-                $('#contents').html(data);
-                $("#detailModal").modal("show");
-            }
-        })
+    $(document).ready(function() {
+        $(".prof").click(function() {
+            var user_id = $(this).attr("id");
+            $("#profileModal").modal("show");
+            $.ajax({
+                url: "<?php echo base_url() ?>profil/detail",
+                type: "POST",
+                data: "id=" + user_id,
+                cache: false,
+                success: function(data) {
+                    $('#contents').html(data);
+                    $("#detailModal").modal("show");
+                }
+            })
+        });
     });
-});
 </script>

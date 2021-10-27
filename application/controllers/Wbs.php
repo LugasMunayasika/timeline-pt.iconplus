@@ -1,62 +1,69 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Wbs extends CI_Controller {
+class Wbs extends CI_Controller
+{
 
-	public function __construct(){
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->model('Wbs_model');
 		$this->load->model('User_model');
-		if($this->session->userdata('logged_in') == false){
+		if ($this->session->userdata('logged_in') == false) {
 			redirect('welcome');
 		}
 	}
 
-	public function index(){
+	public function index()
+	{
 		$data['title'] = 'Wbs';
 		$data['list'] = $this->Wbs_model->getList();
-		$data['primary_view'] = 'anggota/anggota_view';
+		$data['primary_view'] = 'wbs/v_wbs';
 		$data['total'] = $this->Wbs_model->getCount();
-		$this->load->view('template_view', $data);
+		$this->load->view('v_template', $data);
 	}
 
-	public function detail(){
-		$data['title'] = 'Detail Anggota';
+	public function detail()
+	{
+		$data['title'] = 'Detail wbs';
 
 		//GET : Detail data
 		$id = $this->input->get('idtf');
 		$data['row'] = $this->Wbs_model->getDetail($id);
 		//CHECK : Data Availability
-		if($this->Wbs_model->checkAvailability($id) == true){
-			$data['primary_view'] = 'anggota/detail_anggota_view';
-		}else{
+		if ($this->Wbs_model->checkAvailability($id) == true) {
+			$data['primary_view'] = 'wbs/detail_anggota_view';
+		} else {
 			$data['primary_view'] = '404_view';
 		}
-		$this->load->view('template_view', $data);
+		$this->load->view('v_template', $data);
 	}
 
-	public function add(){
-		$data['title'] = 'Tambah Anggota';
-		$data['primary_view'] = 'anggota/add_anggota_view';
-		$this->load->view('template_view', $data);
+	public function add()
+	{
+		$data['title'] = 'Tambah wbs';
+		$data['primary_view'] = 'wbs/create_wbs';
+		$this->load->view('v_template', $data);
 	}
 
-	public function edit(){
+	public function edit()
+	{
 		$id = $this->input->get('idtf');
 		//CHECK : Data Availability
-		if($this->Wbs_model->checkAvailability($id) == true){
-			$data['primary_view'] = 'anggota/edit_anggota_view';
-		}else{
+		if ($this->Wbs_model->checkAvailability($id) == true) {
+			$data['primary_view'] = 'wbs/edit_anggota_view';
+		} else {
 			$data['primary_view'] = '404_view';
 		}
 		$data['title'] = 'Edit Anggota';
 		$data['detail'] = $this->Wbs_model->getDetail($id);
 		//exit(json_encode($this->Wbs_model->getDetail($id)));
-		$this->load->view('template_view', $data);
+		$this->load->view('v_template', $data);
 	}
 
-	public function submit(){
-		if($this->input->post('t')){
+	public function submit()
+	{
+		if ($this->input->post('t')) {
 			$this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required');
 			$this->form_validation->set_rules('tmp_lahir', 'Tempat Lahir', 'trim|required');
 			$this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'trim|required');
@@ -64,37 +71,38 @@ class Wbs extends CI_Controller {
 			$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
 
 			if ($this->form_validation->run() == true) {
-				$config['upload_path'] = './assets/images/upload/anggota/';
+				$config['upload_path'] = './assets/images/upload/wbs/';
 				$config['allowed_types'] = 'gif|jpg|png';
 				$config['max_size']  = '2000';
-				
+
 				$this->load->library('upload', $config);
 
-				//GET : Petugas ID
+				//GET : user ID
 				$username = $this->session->userdata('username');
-				$id_petugas = $this->Petugas_model->getID($username);
+				$id_user = $this->User_model->getID($username);
 
-				if ($this->upload->do_upload('foto')){
-					if($this->Wbs_model->insert($id_petugas, $this->upload->data()) == true){
+				if ($this->upload->do_upload('foto')) {
+					if ($this->Wbs_model->insert($id_user, $this->upload->data()) == true) {
 						$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
-						redirect('anggota/add');
-					}else{
+						redirect('wbs/add');
+					} else {
 						$this->session->set_flashdata('announce', 'Gagal menyimpan data');
-						redirect('anggota/add');
+						redirect('wbs/add');
 					}
-				}else{
+				} else {
 					$this->session->set_flashdata('announce', $this->upload->display_errors());
-					redirect('anggota/add');
+					redirect('wbs/add');
 				}
 			} else {
 				$this->session->set_flashdata('announce', validation_errors());
-				redirect('anggota/add');
+				redirect('wbs/add');
 			}
 		}
 	}
 
-	public function submitEdit(){
-		if($this->input->post('submit')){
+	public function submitEdit()
+	{
+		if ($this->input->post('submit')) {
 			/* $this->form_validation->set_rules('judul', 'Judul Buku', 'trim|required');
 			$this->form_validation->set_rules('penulis', 'Penulis', 'trim|required');
 			$this->form_validation->set_rules('penerbit', 'Penerbit', 'trim|required');
@@ -102,13 +110,13 @@ class Wbs extends CI_Controller {
 			$this->form_validation->set_rules('jumlah', 'Jumlah', 'trim|required|numeric'); */
 
 			//if ($this->form_validation->run() == true) {
-				if($this->Wbs_model->update($this->input->post('id')) == true){
-					$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
-					redirect('anggota/edit?idtf='.$this->input->post('id'));
-				}else{
-					$this->session->set_flashdata('announce', 'Gagal menyimpan data');
-					redirect('anggota/edit?idtf='.$this->input->post('id'));
-				}
+			if ($this->Wbs_model->update($this->input->post('id')) == true) {
+				$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
+				redirect('wbs/edit?idtf=' . $this->input->post('id'));
+			} else {
+				$this->session->set_flashdata('announce', 'Gagal menyimpan data');
+				redirect('wbs/edit?idtf=' . $this->input->post('id'));
+			}
 			/* } else {
 				$this->session->set_flashdata('announce', validation_errors());
 				redirect('buku/edit?idtf='.$this->input->post('id'));
@@ -116,14 +124,15 @@ class Wbs extends CI_Controller {
 		}
 	}
 
-	public function delete(){
+	public function delete()
+	{
 		$id = $this->input->get('rcgn');
-		if($this->Wbs_model->delete($id) == true){
+		if ($this->Wbs_model->delete($id) == true) {
 			$this->session->set_flashdata('announce', 'Berhasil menghapus data');
-			redirect('anggota');
-		}else{
+			redirect('wbs');
+		} else {
 			$this->session->set_flashdata('announce', 'Gagal menghapus data');
-			redirect('anggota');
+			redirect('wbs');
 		}
 	}
 }
