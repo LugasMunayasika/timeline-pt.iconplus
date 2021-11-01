@@ -47,45 +47,45 @@ class Penugasan extends CI_Controller
 
 			if ($this->form_validation->run() == true) {
 				$config['upload_path'] = './assets/doc/upload/';
-				$config['allowed_types'] = 'doc|docx|pdf';
+				$config['allowed_types'] = 'doc|docx|pdf|png';
 				$config['max_size']  = '20000';
 
 				$this->load->library('upload', $config);
-				$id_user = $this->User_model->getID($this->session->userdata('username'));
-
 				if ($this->upload->do_upload('dokumen') == true) {
-					if ($this->Penugasan_model->update($id_user, $this->upload->data()) == true) {
-						$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
-						redirect('penugasan/create');
-					} else {
-						$this->session->set_flashdata('announce', 'Gagal menyimpan data');
-						redirect('penugasan/create');
-					}
-				} else {
-					$this->session->set_flashdata('announce', $this->upload->display_errors());
-					redirect('penugasan/create');
-				}
-			} else {
-				$this->session->set_flashdata('announce', validation_errors());
-				redirect('penugasan/create');
-			}
-
-			if ($this->form_validation->run() == true) {
-				//GET : Petugas ID
-				$username = $this->session->userdata('username');
-				$id_user = $this->User_model->getID($username);
-
-				if ($this->Penugasan_model->insert($id_user) == true) {
 					$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
 					redirect('penugasan/create');
-				} else {
+				}
+				else if ($this->Penugasan_model->insert() == true) {
+					$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
+					redirect('penugasan/create');
+				} 
+				else {
+					$this->session->set_flashdata('announce', $this->upload->display_errors());
 					$this->session->set_flashdata('announce', 'Gagal menyimpan data');
 					redirect('penugasan/create');
+					
 				}
 			} else {
 				$this->session->set_flashdata('announce', validation_errors());
 				redirect('penugasan/create');
 			}
+
+			// if ($this->form_validation->run() == true) {
+			// 	//GET : Petugas ID
+			// 	$username = $this->session->userdata('username');
+			// 	$id_user = $this->User_model->getID($username);
+
+			// 	if ($this->Penugasan_model->insert($id_user) == true) {
+			// 		$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
+			// 		redirect('penugasan/create');
+			// 	} else {
+			// 		$this->session->set_flashdata('announce', 'Gagal menyimpan data');
+			// 		redirect('penugasan/create');
+			// 	}
+			// } else {
+			// 	$this->session->set_flashdata('announce', validation_errors());
+			// 	redirect('penugasan/create');
+			// }
 		}
 	}
 

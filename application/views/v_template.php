@@ -153,7 +153,7 @@
                                 </ul>
                             </li>
                             <?php if ($this->session->userdata('role') == 'admin') : ?>
-                                <li role="presentation" class="dropdown">
+                                <li ="presentation" class="dropdown">
                                     <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                         <i class="fa fa-bell-o"></i>
                                         <?php $notifCount = $this->db->count_all('notif'); ?>
