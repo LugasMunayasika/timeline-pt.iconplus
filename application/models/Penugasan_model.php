@@ -41,8 +41,7 @@ class Penugasan_model extends CI_Model
 			'KATEGORI'			=> $this->input->post('kategori'),
 			'PIC'			=> $this->input->post('pic'),
 			'TGL_SELESAI'		=> $this->input->post('tgl_selesai'),
-			'DOKUMEN'		=> $this->input->post('dokumen'),
-			'STATUS'		=> $this->input->post('status'),
+			'DOKUMEN'		=> $this->input->post('dokumen')
 		);
 
 		$this->db->where('ID_TUGAS', $id)->update('tugas', $data);

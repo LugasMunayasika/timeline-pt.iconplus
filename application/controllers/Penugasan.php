@@ -32,23 +32,23 @@ class Penugasan extends CI_Controller
 
 	public function submit()
 	{
-		if ($this->input->post('submit')) {
-			$this->form_validation->set_rules('id_tugas', 'ID Tugas', 'trim|required');
-			$this->form_validation->set_rules('no_surat', 'No Surat penugasan', 'trim|required');
-			$this->form_validation->set_rules('perihal', 'Perihal', 'trim|required');
-			$this->form_validation->set_rules('tgl_surat', 'Tgl Surat', 'trim|required');
-			$this->form_validation->set_rules('nama_pekerjaan', 'Nama Pekerjaan', 'trim|required');
-			$this->form_validation->set_rules('pemberi_kerja', 'Pemberi Kerja', 'trim|required');
-			$this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
-			$this->form_validation->set_rules('pic', 'PIC', 'trim|required');
-			$this->form_validation->set_rules('tgl_selesai', 'Tgl Target Penyelesaian', 'trim|required');
-			$this->form_validation->set_rules('dokumen', 'Dokumen', 'trim|required');
+		// if ($this->input->post('submit')) {
+		// 	$this->form_validation->set_rules('id_tugas', 'ID Tugas', 'trim|required');
+		// 	$this->form_validation->set_rules('no_surat', 'No Surat penugasan', 'trim|required');
+		// 	$this->form_validation->set_rules('perihal', 'Perihal', 'trim|required');
+		// 	$this->form_validation->set_rules('tgl_surat', 'Tgl Surat', 'trim|required');
+		// 	$this->form_validation->set_rules('nama_pekerjaan', 'Nama Pekerjaan', 'trim|required');
+		// 	$this->form_validation->set_rules('pemberi_kerja', 'Pemberi Kerja', 'trim|required');
+		// 	$this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
+		// 	$this->form_validation->set_rules('pic', 'PIC', 'trim|required');
+		// 	$this->form_validation->set_rules('tgl_selesai', 'Tgl Target Penyelesaian', 'trim|required');
+		// 	$this->form_validation->set_rules('dokumen', 'Dokumen', 'trim|required');
 
 
-			if ($this->form_validation->run() == true) {
+			// if ($this->form_validation->run() == true) {
 				$config['upload_path'] = './assets/doc/upload/';
-				$config['allowed_types'] = 'doc|docx|pdf|png';
-				$config['max_size']  = '20000';
+				$config['allowed_types'] = 'jpg|png';
+				$config['max_size']  = 20000;
 
 				$this->load->library('upload', $config);
 				if ($this->upload->do_upload('dokumen') == true) {
@@ -63,12 +63,12 @@ class Penugasan extends CI_Controller
 					$this->session->set_flashdata('announce', $this->upload->display_errors());
 					$this->session->set_flashdata('announce', 'Gagal menyimpan data');
 					redirect('penugasan/create');
-					
 				}
-			} else {
-				$this->session->set_flashdata('announce', validation_errors());
-				redirect('penugasan/create');
-			}
+
+			// } else {
+			// 	$this->session->set_flashdata('announce', validation_errors());
+			// 	redirect('penugasan/create');
+			// }
 
 			// if ($this->form_validation->run() == true) {
 			// 	//GET : Petugas ID
@@ -87,7 +87,7 @@ class Penugasan extends CI_Controller
 			// 	redirect('penugasan/create');
 			// }
 		}
-	}
+	
 
 	public function submits()
 	{
