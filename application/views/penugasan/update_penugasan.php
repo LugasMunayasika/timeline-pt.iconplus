@@ -33,76 +33,76 @@
                             }
                         ?>
                             <form method="post" action="<?php echo base_url() ?>penugasan/submits" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-                                <!-- <input type="hidden" readonly name="id" value="<?php echo $detail->ID_TUGAS ?>"> -->
+                                <input type="hidden" readonly name="id" value="<?php echo $detail->ID_TUGAS ?>">
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">NO Surat
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >NO Surat
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" name="no_surat" value="<?php echo $detail->NO_SURAT ?>" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Perihal
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Perihal
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="perihal" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" name="perihal" value="<?php echo $detail->PERIHAL ?>" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tanggal Surat
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Tanggal Surat
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="date" name="tgl_surat" value="<?php echo $detail->TGL_SURAT ?>" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama Pekerjaan
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nama Pekerjaan
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" name="nama_pekerjaan" value="<?php echo $detail->NAMA_PEKERJAAN ?>" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Pemberi Kerja
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Pemberi Kerja
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                     <select class="form-control" name="pemberi_kerja">
-                                            <option value="di">Dirut</option>
-                                            <option value="dr">Direksi</option>
-                                            <option value="pln">PLN Pusat</option>
-                                            <option value="ko">Korporat/ Turunan Program Strategis</option>
-                                            <option value="sh">Pemegang Saham</option>
+                                            <option value="Dirut">Dirut</option>
+                                            <option value="Direksi">Direksi</option>
+                                            <option value="PLN Pusat">PLN Pusat</option>
+                                            <option value="Korporat/ Turunan Program Strategis">Korporat/ Turunan Program Strategis</option>
+                                            <option value="Pemegang Saham">Pemegang Saham</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kategori
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Kategori
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" name="kategori" value="<?php echo $detail->KATEGORI ?>" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">PIC
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >PIC
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" name="pic" value="<?php echo $detail->PIC ?>" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tanggal Target Penyelesaian
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Tanggal Target Penyelesaian
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="date" name="tgl_selesai" value="<?php echo $detail->TGL_SELESAI ?>" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Dokumen
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Dokumen
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                     <form method="post" action="<?=base_url('tambahdokumen')?>"
                                     enctype="multipart/form-data">
-                                    <input type="file" id="dokumen" name="dokumen" size="20" class="form-control col-md-7 col-xs-12" />
+                                    <input type="file" id="dokumen" name="dokumen" size="10000" value="<?php echo $detail->DOKUMEN ?>" class="form-control col-md-7 col-xs-12"  />
                                     <!-- <input type="file" name="dokumen" class="form-control col-md-7 col-xs-12"> -->
                                 </div>
                             </div>

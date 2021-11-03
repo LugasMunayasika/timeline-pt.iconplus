@@ -32,41 +32,41 @@
                                 }
                             }
                         ?>
-                            <form method="post" action="<?php echo base_url() ?>wbs/update_wbs" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" autocomplete= "off" >
-                                <input type="hidden" name="idw" <?php echo $id->WEB_CODE ?>>
+                            <form method="post" action="<?php echo base_url() ?>wbs/submits" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" autocomplete= "off" >
+                                <input type="hidden" name="id" value="<?php echo $detail->WEB_CODE ?>">
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" >PIC
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="pic" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" name="pic" id="pic" class="form-control col-md-7 col-xs-12" value="<?php echo $detail->PIC ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" >Tanggal Awal
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="date" name="tgl_awal" id="tgl_awal" class="form-control col-md-7 col-xs-12">
+                                        <input type="date" name="tgl_awal" id="tgl_awal" class="form-control col-md-7 col-xs-12" value="<?php echo $detail->TGL_AWAL?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" >Tanggal Akhir
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="date" name="tgl_akhir" id="tgl_akhir" class="form-control col-md-7 col-xs-12">
+                                        <input type="date" name="tgl_akhir" id="tgl_akhir" class="form-control col-md-7 col-xs-12" value="<?php echo $detail->TGL_AKHIR ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" >Durasi
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="integer" name="durasi" id="durasi" class="form-control col-md-7 col-xs-12">
+                                        <input type="integer" name="durasi" id="durasi" class="form-control col-md-7 col-xs-12" value="<?php echo $detail->DURASI ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nama Pekerjaan
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="nama_pekerjaan" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" name="nama_pekerjaan" class="form-control col-md-7 col-xs-12" value="<?php echo $detail->NAMA_PEKERJAAN?>">
                                     </div>
                                 </div>
                               

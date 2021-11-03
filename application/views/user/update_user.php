@@ -35,14 +35,14 @@
                             <form method="post" action="<?php echo base_url() ?>user/submits" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" autocomplete= "off" >
                                 <input type="hidden" name="ids" value="<?php echo $detail->ID_ADMIN ?>">
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama Lengkap
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nama Lengkap
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" name="fullname" class="form-control col-md-7 col-xs-12" value="<?php echo $detail->FULLNAME ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Role
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Role
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                     <?php $role = $detail->ROLE ?>
@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Username
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Username
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" name="username" class="form-control col-md-7 col-xs-12" value="<?php echo $detail->USERNAME ?>">
@@ -76,14 +76,14 @@
 
                                 <div id="pw" style="display: none">
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">New Password
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >New Password
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="password" name="password" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Confirm Password
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Confirm Password
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="password" name="cpassword" class="form-control col-md-7 col-xs-12">

@@ -111,13 +111,6 @@ class User_model extends CI_Model {
 		if($this->input->post('username') == $user){
 			return true;
 		}else{
-			// $totRow = $this->db->count_all('admin'); //6
-			// $query = $this->db->where('USERNAME !=' , $user)->from('admin')->count_all_results(); //5
-			// if((int)$query == (int)$totRow - 1){
-			// 	return true;
-			// }else{
-			// 	return false;
-			// }
 
 			$get = $this->db->where('USERNAME', $this->input->post('username'))->get('admin');
 			if($get->num_rows() > 0){

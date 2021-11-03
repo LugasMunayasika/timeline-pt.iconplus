@@ -12,7 +12,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>List Data <small>Data WBS</small></h2>
+                    <h2>List Data <small>WBS</small></h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -32,6 +32,7 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>WEB CODE </th>
                                     <th>PIC</th>
                                     <th>Tanggal Awal</th>
@@ -47,6 +48,7 @@
                                 <?php $no = 1; ?>
                                 <?php foreach ($list as $WbsList) : ?>
                                     <tr>
+                                    <td><?php echo $no ?></td>
                                         <td><?php echo $WbsList->WEB_CODE ?></td>
                                         <td><?php echo $WbsList->PIC  ?></td>
                                         <td><?php echo $WbsList->TGL_AWAL  ?></td>

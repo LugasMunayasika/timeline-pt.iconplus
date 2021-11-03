@@ -23,7 +23,12 @@ class Wbs_model extends CI_Model
 		}
 	}
 
-	public function update($id)
+	public function getList()
+	{
+		return $query = $this->db->order_by('web_code', 'ASC')->get('wbs')->result();
+	}
+
+	public function update()
 	{
 		$data = array(
 			'PIC'		=> $this->input->post('pic'),
@@ -39,11 +44,6 @@ class Wbs_model extends CI_Model
 		} else {
 			return false;
 		}
-	}
-
-	public function getList()
-	{
-		return $query = $this->db->order_by('web_code', 'ASC')->get('wbs')->result();
 	}
 
 	public function getCount()
@@ -68,7 +68,7 @@ class Wbs_model extends CI_Model
 
 	public function delete($id)
 	{
-		$this->db->where('WEB_CODE', $id)->delete('web_code');
+		$this->db->where('WEB_CODE', $id)->delete('wbs');
 		if ($this->db->affected_rows() > 0) {
 			return true;
 		} else {
@@ -78,6 +78,3 @@ class Wbs_model extends CI_Model
 
 	
 }
-
-/* End of file Anggota_model.php */
-/* Location: ./application/models/Anggota_model.php */

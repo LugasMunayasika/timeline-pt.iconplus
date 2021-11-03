@@ -35,42 +35,42 @@
                             <form method="post" action="<?php echo base_url() ?>profil/simpan" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
                                 <input type="hidden" readonly name="id" value="<?php echo $det->ID_ADMIN ?>">
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama Lengkap
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama Lengkap
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" name="fullname" value="<?php echo $det->FULLNAME ?>" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Username
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Username
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" name="username" value="<?php echo $det->USERNAME ?>" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Jenis Kelamin
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Kelamin
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" name="jk" value="<?php echo $det->JENKEL ?>" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">No. Telepon
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Telepon
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="number" name="telp" value="<?php echo $det->NO_TELP ?>" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Alamat
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Alamat
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input name="alamat" class="form-control col-md-7 col-xs-12" value="<?php echo $det->ALAMAT ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Foto
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Foto
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="file" name="foto" class="form-control">

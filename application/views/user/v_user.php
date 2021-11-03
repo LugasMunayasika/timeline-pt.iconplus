@@ -1,7 +1,7 @@
 <div class="">
     <div class="page-title" style="padding: 8px">
         <div class="title_left">
-            <h1><i class="fa fa-user"></i> User</h1>
+            <h1><i class="fa fa-users"></i> User</h1>
         </div>
     </div>
     <?php if($this->session->userdata('role')=='superadmin'): ?>
