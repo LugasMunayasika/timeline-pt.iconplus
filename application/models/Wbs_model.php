@@ -68,13 +68,15 @@ class Wbs_model extends CI_Model
 
 	public function delete($id)
 	{
-		$this->db->where('ID_ANGGOTA', $id)->delete('anggota');
+		$this->db->where('WEB_CODE', $id)->delete('web_code');
 		if ($this->db->affected_rows() > 0) {
 			return true;
 		} else {
 			return false;
 		}
 	}
+
+	
 }
 
 /* End of file Anggota_model.php */

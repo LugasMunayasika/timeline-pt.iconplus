@@ -5,7 +5,7 @@
         </div>
     </div>
     <?php if ($this->session->userdata('role') == 'superadmin') : ?>
-        <a href="<?php echo base_url() ?>wbs/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Data Penugasan</a>
+        <a href="<?php echo base_url() ?>wbs/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah WBS</a>
     <?php endif; ?>
     <div class="clearfix"></div>
     <div class="row">

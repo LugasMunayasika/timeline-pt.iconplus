@@ -23,22 +23,6 @@ class Wbs extends CI_Controller
 		$this->load->view('v_template', $data);
 	}
 
-// 	public function detail()
-// 	{
-// 		$data['title'] = 'Detail wbs';
-
-// 		//GET : Detail data
-// 		$id = $this->input->get('idtf');
-// 		$data['row'] = $this->Wbs_model->getDetail($id);
-// 		//CHECK : Data Availability
-// 		if ($this->Wbs_model->checkAvailability($id) == true) {
-// 			$data['primary_view'] = 'wbs/detail_anggota_view';
-// 		} else {
-// 			$data['primary_view'] = '404_view';
-// 		}
-// 		$this->load->view('v_template', $data);
-// 	}
-
 	public function create()
 	{
 		$data['title'] = 'Tambah wbs';
@@ -46,20 +30,20 @@ class Wbs extends CI_Controller
 		$this->load->view('v_template', $data);
 	}
 
-// 	public function edit()
-// 	{
-// 		$id = $this->input->get('idtf');
-// 		//CHECK : Data Availability
-// 		if ($this->Wbs_model->checkAvailability($id) == true) {
-// 			$data['primary_view'] = 'wbs/edit_anggota_view';
-// 		} else {
-// 			$data['primary_view'] = '404_view';
-// 		}
-// 		$data['title'] = 'Edit Anggota';
-// 		$data['detail'] = $this->Wbs_model->getDetail($id);
-// 		//exit(json_encode($this->Wbs_model->getDetail($id)));
-// 		$this->load->view('v_template', $data);
-// 	}
+	public function update()
+	{
+		$id = $this->input->get('id');
+		//CHECK : Data Availability
+		if ($this->Wbs_model->checkAvailability($id) == true) {
+			$data['primary_view'] = 'wbs/update_wbs';
+		} else {
+			// $data['primary_view'] = '404_view';
+		}
+		$data['title'] = 'Edit WBS';
+		$data['detail'] = $this->Wbs_model->getDetail($id);
+		//exit(json_encode($this->Wbs_model->getDetail($id)));
+		$this->load->view('v_template', $data);
+	}
 
 	public function submit()
 	{
@@ -77,41 +61,41 @@ class Wbs extends CI_Controller
 			redirect('wbs/create');
 		}
 	}
+}	
+	
 
-// 	public function submitEdit()
-// 	{
-// 		if ($this->input->post('submit')) {
-// 			/* $this->form_validation->set_rules('judul', 'Judul Buku', 'trim|required');
-// 			$this->form_validation->set_rules('penulis', 'Penulis', 'trim|required');
-// 			$this->form_validation->set_rules('penerbit', 'Penerbit', 'trim|required');
-// 			$this->form_validation->set_rules('tahun', 'Tahun', 'trim|required|numeric');
-// 			$this->form_validation->set_rules('jumlah', 'Jumlah', 'trim|required|numeric'); */
+	public function delete()
+	{
+		$id = $this->input->get('rcgn');
+		if ($this->Wbs_model->delete($id) == true) {
+			$this->session->set_flashdata('announce', 'Berhasil menghapus data');
+			redirect('wbs');
+		} else {
+			$this->session->set_flashdata('announce', 'Gagal menghapus data');
+			redirect('wbs');
+		}
+	}
+	
 
-// 			//if ($this->form_validation->run() == true) {
-// 			if ($this->Wbs_model->update($this->input->post('id')) == true) {
-// 				$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
-// 				redirect('wbs/edit?idtf=' . $this->input->post('id'));
-// 			} else {
-// 				$this->session->set_flashdata('announce', 'Gagal menyimpan data');
-// 				redirect('wbs/edit?idtf=' . $this->input->post('id'));
-// 			}
-// 			/* } else {
-// 				$this->session->set_flashdata('announce', validation_errors());
-// 				redirect('buku/edit?idtf='.$this->input->post('id'));
-// 			} */
-// 		}
-// 	}
-
-// 	public function delete()
-// 	{
-// 		$id = $this->input->get('rcgn');
-// 		if ($this->Wbs_model->delete($id) == true) {
-// 			$this->session->set_flashdata('announce', 'Berhasil menghapus data');
-// 			redirect('wbs');
-// 		} else {
-// 			$this->session->set_flashdata('announce', 'Gagal menghapus data');
-// 			redirect('wbs');
-// 		}
-// 	}
+public function submits()
+{
+	if ($this->input->post('submit')) {
+		$this->form_validation->set_rules('tgl_awal', 'Tanggal Awal', 'trim|required');
+		$this->form_validation->set_rules('tgl_akhir', 'Tanggal Akhir', 'trim|required');
+		$this->form_validation->set_rules('durasi', 'durasi', 'trim|required|integer');
+		$this->form_validation->set_rules('nama_pekerjaan', 'Nama Pekerjaan', 'trim|required');
+		if ($this->form_validation->run() == true) {
+		if ($this->Wbs_model->update($this->input->post('id')) == true) {
+			$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
+			redirect('wbs/update_wbs?idw=' . $this->input->post('id'));
+		} else {
+			$this->session->set_flashdata('announce', 'Gagal menyimpan data');
+			redirect('wbs/update_wbs?idw=' . $this->input->post('id'));
+		}
+		} else {
+			$this->session->set_flashdata('announce', validation_errors());
+			redirect('wbs/update_wbs?idw='.$this->input->post('id'));
+		} 
+	}
 }
 }

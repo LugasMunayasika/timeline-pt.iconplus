@@ -71,15 +71,15 @@ class Penugasan extends CI_Controller
 	{
 		if ($this->input->post('submit')) {
 			// $this->form_validation->set_rules('id_tugas', 'ID Tugas', 'trim|required');
-			$this->form_validation->set_rules('no_surat', 'No Surat penugasan', 'trim|required');
-			$this->form_validation->set_rules('perihal', 'Perihal', 'trim|required');
-			$this->form_validation->set_rules('tgl_surat', 'Tgl Surat', 'trim|required');
-			$this->form_validation->set_rules('nama_pekerjaan', 'Nama Pekerjaan', 'trim|required');
-			$this->form_validation->set_rules('pemberi_kerja', 'Pemberi Kerja', 'trim|required');
-			$this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
-			$this->form_validation->set_rules('pic', 'PIC', 'trim|required');
-			$this->form_validation->set_rules('tgl_selesai', 'Tgl Target Penyelesaian', 'trim|required');
-			$this->form_validation->set_rules('dokumen', 'Dokumen', 'trim|required');
+			// $this->form_validation->set_rules('no_surat', 'No Surat penugasan', 'trim|required');
+			// $this->form_validation->set_rules('perihal', 'Perihal', 'trim|required');
+			// $this->form_validation->set_rules('tgl_surat', 'Tgl Surat', 'trim|required');
+			// $this->form_validation->set_rules('nama_pekerjaan', 'Nama Pekerjaan', 'trim|required');
+			// $this->form_validation->set_rules('pemberi_kerja', 'Pemberi Kerja', 'trim|required');
+			// $this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
+			// $this->form_validation->set_rules('pic', 'PIC', 'trim|required');
+			// $this->form_validation->set_rules('tgl_selesai', 'Tgl Target Penyelesaian', 'trim|required');
+			// $this->form_validation->set_rules('dokumen', 'Dokumen', 'trim|required');
 			// $this->form_validation->set_rules('status', 'Status', 'trim|required');
 
 

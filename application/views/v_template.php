@@ -74,9 +74,6 @@
                                 <li>
                                     <a href="<?php echo base_url() ?>penugasan"><i class="fa fa-tasks"></i> Data Penugasan</a>
                                 </li>
-                                <!-- <li>
-                                    <a href="<?php echo base_url() ?>petugas"><i class="fa fa-pencil-square-o "></i> Koreksi Penugasan</a>
-                                </li> -->
                                 <li>
                                     <a href="<?php echo base_url() ?>wbs"><i class="fa fa-calendar"></i> WBS</a>
 
