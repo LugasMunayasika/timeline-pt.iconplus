@@ -63,7 +63,7 @@
                                         <td><?php echo $penugasanList->KATEGORI ?></td>
                                         <td><?php echo $penugasanList->PIC ?></td>
                                         <td><?php echo $penugasanList->TGL_SELESAI ?></td>
-                                        <td><?php echo $penugasanList->DOKUMEN  ?></td>
+                                        <td><a href="<?php echo base_url() ?>assets/doc/upload/<?php echo $penugasanList->DOKUMEN  ?>"><?php echo $penugasanList->DOKUMEN  ?></td>
 
                                         <?php if ($this->session->userdata('role') == 'superadmin') : ?>
                                             <td width="6%">
