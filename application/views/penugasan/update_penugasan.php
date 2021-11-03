@@ -97,22 +97,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Dokumen</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="dokumen" class="form-control col-md-7 col-xs-12">
-                                </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Status
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Dokumen
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="status">
-                                            <option value="sukses">Sukses</option>
-                                            <option value="pending">Pending</option>
-                                            <option value="gagal">Gagal</option>
-                                        </select>
-                                    </div>
+                                    <form method="post" action="<?=base_url('tambahdokumen')?>"
+                                    enctype="multipart/form-data">
+                                    <input type="file" id="dokumen" name="dokumen" size="20" class="form-control col-md-7 col-xs-12" />
+                                    <!-- <input type="file" name="dokumen" class="form-control col-md-7 col-xs-12"> -->
                                 </div>
+                            </div>
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

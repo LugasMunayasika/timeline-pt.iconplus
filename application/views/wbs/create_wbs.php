@@ -1,7 +1,7 @@
 <div class="">
     <div class="page-title" style="padding: 8px">
         <div class="title_left">
-            <h1><i class="fa fa-users"></i>  Tambah WBS</h1>
+            <h1><i class="fa fa-calendar"></i>  Tambah WBS</h1>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -23,65 +23,56 @@
                             <div class="alert alert-danger"><?php echo $announce; ?></div>
                             <?php endif; ?>
                         <?php endif; ?>
-                            <form method="post" action="<?php echo base_url() ?>anggota/submit" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
+                            <form method="post" action="<?php echo base_url() ?>wbs/submit" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama Lengkap
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Web Code
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="nama_lengkap" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" name="web_code" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tempat Lahir
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >PIC
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="tmp_lahir" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" name="pic" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tanggal Lahir
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Tanggal Awal
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="tgl_lahir" id="single_cal1" class="form-control col-md-7 col-xs-12">
+                                        <input type="date" name="tgl_awal" id="tgl_awal" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Jenis Kelamin
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Tanggal Akhir
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <select class="form-control" name="gender">
-                                            <option value="L">Laki-Laki</option>
-                                            <option value="P">Perempuan</option>
-                                        </select>
+                                        <input type="date" name="tgl_akhir" id="tgl_akhir" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">No. Telepon
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Durasi
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="number" name="telp" class="form-control col-md-7 col-xs-12">
+                                        <input type="integer" name="durasi" id="durasi" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Alamat
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nama Pekerjaan
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <textarea type="text" name="alamat" class="form-control col-md-7 col-xs-12"></textarea>
+                                        <input type="text" name="nama_pekerjaan" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tempat Lahir
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="file" name="foto" class="form-control col-md-7 col-xs-12" required>
-                                    </div>
-                                </div>
+                              
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                        <a class="btn btn-primary" href="<?php echo base_url('anggota') ?>">Kembali</a>
+                                        <a class="btn btn-primary" href="<?php echo base_url('wbs') ?>">Kembali</a>
                                         <button class="btn btn-primary" type="reset">Reset</button>
-                                        <input type="submit" class="btn btn-success" name="t" value="Simpan">
+                                        <input type="submit" class="btn btn-success" name="submit" value="Simpan">
                                     </div>
                                 </div>
                             </form>

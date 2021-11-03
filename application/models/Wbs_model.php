@@ -4,10 +4,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Wbs_model extends CI_Model
 {
 
-	public function insert($id_user, $foto)
+	public function insert()
 	{
 		$data = array(
-			'ID_WBS'	=> $this->generateID(),
+			'WEB_CODE'	=> $this->input->post('web_code'),
 			'PIC'		=> $this->input->post('pic'),
 			'TGL_AWAL'		=> $this->input->post('tgl_awal'),
 			'TGL_AKHIR'		=> $this->input->post('tgl_akhir'),
@@ -26,12 +26,14 @@ class Wbs_model extends CI_Model
 	public function update($id)
 	{
 		$data = array(
-			'FULL_NAME'			=> $this->input->post('pic'),
+			'PIC'		=> $this->input->post('pic'),
+			'TGL_AWAL'		=> $this->input->post('tgl_awal'),
+			'TGL_AKHIR'		=> $this->input->post('tgl_akhir'),
 			'DURASI'		=> $this->input->post('durasi'),
-			'TELP'		=> $this->input->post('telp')
+			'NAMA_PEKERJAAN'		=> $this->input->post('nama_pekerjaan'),
 		);
 
-		$this->db->where('ID_ANGGOTA', $id)->update('anggota', $data);
+		$this->db->where('WEB_CODE', $id)->update('wbs', $data);
 		if ($this->db->affected_rows() > 0) {
 			return true;
 		} else {
@@ -39,33 +41,24 @@ class Wbs_model extends CI_Model
 		}
 	}
 
-	public function generateID()
-	{
-		$query = $this->db->order_by('WEB_CODE', 'DESC')->limit(1)->get('wbs')->row('WEB_CODE');
-		$lastNo = substr($query, 3);
-		$next = $lastNo + 1;
-		$kd = 'WBC';
-		return $kd . sprintf('%03s', $next);
-	}
-
 	public function getList()
 	{
-		return $query = $this->db->order_by('id_anggota', 'ASC')->get('anggota')->result();
+		return $query = $this->db->order_by('web_code', 'ASC')->get('wbs')->result();
 	}
 
 	public function getCount()
 	{
-		return $this->db->count_all('anggota');
+		return $this->db->count_all('wbs');
 	}
 
 	public function getDetail($id)
 	{
-		return $this->db->where('ID_ANGGOTA', $id)->get('anggota')->row();
+		return $this->db->where('WEB_CODE', $id)->get('wbs')->row();
 	}
 
 	public function checkAvailability($id)
 	{
-		$query = $this->db->where('ID_ANGGOTA', $id)->get('anggota');
+		$query = $this->db->where('WEB_CODE', $id)->get('wbs');
 		if ($query->num_rows() > 0) {
 			return true;
 		} else {

@@ -63,11 +63,11 @@
                                         <td><?php echo $penugasanList->KATEGORI ?></td>
                                         <td><?php echo $penugasanList->PIC ?></td>
                                         <td><?php echo $penugasanList->TGL_SELESAI ?></td>
+                                        <!-- <td><a href="<?php echo base_url() ?>assets/doc/upload/<?php echo $penugasanList->DOKUMEN  ?>"><?php echo $penugasanList->DOKUMEN  ?></td> -->
                                         <td><a href="<?php echo base_url() ?>assets/doc/upload/<?php echo $penugasanList->DOKUMEN  ?>"><?php echo $penugasanList->DOKUMEN  ?></td>
-
                                         <?php if ($this->session->userdata('role') == 'superadmin') : ?>
                                             <td width="6%">
-                                                <a href="<?php echo base_url() ?>penugasan/update?idtf=<?php echo $penugasanList->ID_TUGAS ?>" class="btn btn-info btn-xs">
+                                                <a href="<?php echo base_url() ?>penugasan/update?id=<?php echo $penugasanList->ID_TUGAS ?>" class="btn btn-info btn-xs">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
                                                 <button class="btn btn-danger btn-xs" onclick="sweets()">

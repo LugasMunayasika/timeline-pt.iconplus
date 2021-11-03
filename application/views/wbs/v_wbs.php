@@ -1,18 +1,18 @@
 <div class="">
     <div class="page-title" style="padding: 8px">
         <div class="title_left">
-            <h1><i class="fa fa-users"></i> WBS</h1>
+            <h1><i class="fa fa-calendar"></i> Rencana Kerja (WBS)</h1>
         </div>
     </div>
-    <?php if ($this->session->userdata('role') == 'superadmin') {
-        echo '<a href="' . base_url() . 'wbs/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah WBS</a>';
-    } ?>
+    <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+        <a href="<?php echo base_url() ?>wbs/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Data Penugasan</a>
+    <?php endif; ?>
     <div class="clearfix"></div>
     <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="col-md-12 col-sm-12 col-xs-12 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>List Data <small>WBS</small></h2>
+                    <h2>List Data <small>Data WBS</small></h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -25,76 +25,50 @@
                             <div class="alert alert-danger fade in"><?php echo $announce; ?></div>
                         <?php endif; ?>
                     <?php endif; ?>
-                    <div class="row">
+                    <!-- Data -->
+                    <?php if ($total == 0) : ?>
+                        <div class="alert alert-danger">Tidak ada data</div>
+                    <?php else : ?>
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>WEB CODE</th>
+                                    <th>WEB CODE </th>
                                     <th>PIC</th>
                                     <th>Tanggal Awal</th>
                                     <th>Tanggal Akhir</th>
                                     <th>Durasi</th>
                                     <th>Nama Pekerjaan</th>
-                                    <?php if ($this->session->userdata('role') == 'superadmin') {
-                                        echo '<th>Action</th>';
-                                    } ?>
+                                    <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+                                    <th>Action</th>
+                                    <?php endif; ?>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                if ($this->db->count_all('wbs') == 0) {
-                                    echo '
-                                        <tr>
-                                            <td colspan="6">
-                                                <div class="alert alert-danger">
-                                                    Tidak ada data
-                                                </div>
+                                <?php $no = 1; ?>
+                                <?php foreach ($list as $WbsList) : ?>
+                                    <tr>
+                                        <td><?php echo $WbsList->WEB_CODE ?></td>
+                                        <td><?php echo $WbsList->PIC  ?></td>
+                                        <td><?php echo $WbsList->TGL_AWAL  ?></td>
+                                        <td><?php echo $WbsList->TGL_AKHIR ?></td>
+                                        <td><?php echo $WbsList->DURASI	 ?></td>
+                                        <td><?php echo $WbsList->NAMA_PEKERJAAN ?></td>
+                                        <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+                                            <td width="6%">
+                                                <a href="<?php echo base_url() ?>wbs/update?id=<?php echo $WbsList->WEB_CODE ?>" class="btn btn-info btn-xs">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <button class="btn btn-danger btn-xs" onclick="sweets()">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
                                             </td>
-                                        </tr>
-                                        ';
-                                } else {
-                                    $no = 1;
-                                    foreach ($list as $listWbs) {
-                                        $gen = '';
-                                        if ($listWbs->GENDER == 'L') {
-                                            $gen = 'Laki-laki';
-                                        } else {
-                                            $gen = 'Perempuan';
-                                        }
-                                ?>
-                                        <tr>
-                                            <td><?php echo $no ?></td>
-                                            <td><?php echo $listWbs->WEB_CODE ?></td>
-                                            <td><a href="<?php echo base_url() ?>wbs/detail?idtf=<?php echo $listWbs->WEB_CODE ?>"><?php echo $listWbs->FULL_NAME ?></a></td>
-                                            <td><?php echo $listWbs->PIS ?></td>
-                                            <td><?php echo $listWbs->TGL_AWAL ?></td>
-                                            <td><?php echo $listWbs->TGL_AKHIR ?></td>
-                                            <td><?php echo $listWbs->DURASI ?></td>
-                                            <td><?php echo $listWbs->NAMA_PEKERJAAN ?></td>
-                                            <td><?php echo $gen ?></td>
-                                            <?php if ($this->session->userdata('role') == 'superadmin') : ?>
-                                                <td>
-                                                    <a href="<?php echo base_url() ?>wbs/detail?idtf=<?php echo $listWbs->WEB_CODE ?>" class="btn btn-info btn-xs">
-                                                        <i class="fa fa-list"> View</i>
-                                                    </a>
-                                                    <a href="<?php echo base_url() ?>wbs/edit?idtf=<?php echo $listWbs->WEB_CODE ?>" class="btn btn-success btn-xs">
-                                                        <i class="fa fa-edit"> Edit</i>
-                                                    </a>
-                                                    <a onclick="sweets()" class="btn btn-danger btn-xs">
-                                                        <i class="fa fa-trash"> Delete</i>
-                                                    </a>
-                                                </td>
-                                            <?php endif; ?>
-                                        </tr>
-                                <?php
-                                        $no++;
-                                    }
-                                }
-                                ?>
+                                        <?php endif; ?>
+                                    </tr>
+                                    <?php $no++; ?>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -113,7 +87,7 @@
                 closeOnConfirm: false
             },
             function() {
-                window.location.href = "<?php echo base_url() ?>wbs/delete?rcgn=<?php echo $listWbs->WEB_CODE ?>";
+                window.location.href = "<?php echo base_url() ?>wbs/delete?rcgn=<?php echo $WbsList->WEB_CODE?>";
             });
     }
 </script>

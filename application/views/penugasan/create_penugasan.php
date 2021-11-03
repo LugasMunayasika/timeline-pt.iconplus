@@ -108,7 +108,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                 <form method="post" action="<?=base_url('tambahdokumen')?>"
                                 enctype="multipart/form-data">
-                                <input type="file" id="profile_image" name="dokumen" size="20" class="form-control col-md-7 col-xs-12" />
+                                <input type="file" id="dokumen" name="dokumen" size="20" class="form-control col-md-7 col-xs-12" />
                                 <!-- <input type="file" name="dokumen" class="form-control col-md-7 col-xs-12"> -->
                                 </div>
                             </div>

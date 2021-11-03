@@ -32,7 +32,7 @@ class Penugasan_model extends CI_Model
 	public function update($id)
 	{
 		$data = array(
-			'ID_TUGAS'		=> $this->input->post('id_tugas'),
+			// 'ID_TUGAS'		=> $this->input->post('id_tugas'),
 			'NO_SURAT'		=> $this->input->post('no_surat'),
 			'PERIHAL'		=> $this->input->post('perihal'),
 			'TGL_SURAT'			=> $this->input->post('tgl_surat'),
