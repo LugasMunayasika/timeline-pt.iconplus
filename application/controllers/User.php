@@ -12,25 +12,18 @@ class User extends CI_Controller {
 	}
 
 	public function index(){
-		if($this->session->userdata('role') == 'superadmin') {
 			$data['title'] = 'User';
 			$data['primary_view'] = 'user/v_user';
 			$data['list'] = $this->User_model->getList();
 			$data['total'] = $this->User_model->getCount();
 			$this->load->view('v_template', $data);	
-		}else{
-			$this->load->view('full_401_view');
-		}
 	}
 
 	public function create(){
-		if($this->session->userdata('role') == 'superadmin') {
+
 			$data['title'] = 'Tambah user';
 			$data['primary_view'] = 'user/create_user';
 			$this->load->view('v_template', $data);
-		}else{
-			$this->load->view('full_401_view');
-		}
 	}
 
 	public function submit(){
@@ -120,17 +113,15 @@ class User extends CI_Controller {
 	}
 
 	public function delete(){
-		if($this->session->userdata('role') == 'superadmin') {
-			$rcgn = $this->input->get('rcgn');
+		
 			if($this->User_model->delete($rcgn) == true){
 				$this->session->set_flashdata('announce', 'Berhasil menghapus data');
 				redirect('user');
 			}
-		}
 	}
 
 	public function update(){
-		if($this->session->userdata('role') == 'superadmin') {
+	
 			$id = $this->input->get('tken');
 			//CHECK : Data Availability
 			if($this->User_model->checkAvailability($id) == true){
@@ -141,9 +132,6 @@ class User extends CI_Controller {
 			$data['title'] = 'update user';
 			$data['detail'] = $this->User_model->getDetail($id);
 			$this->load->view('v_template', $data);
-		}else{
-			$this->load->view('full_401_view');
-		}
 	}
 
 	public function getDetail($id){
