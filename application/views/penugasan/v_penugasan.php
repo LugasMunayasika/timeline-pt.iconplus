@@ -4,7 +4,7 @@
             <h1><i class="fa fa-tasks"></i> Data Penugasan</h1>
         </div>
     </div>
-    <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+    <?php if ($this->session->userdata('role') == 'superadmin' && $this->session->userdata('role') == 'admin') : ?>
         <a href="<?php echo base_url() ?>penugasan/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Data Penugasan</a>
     <?php endif; ?>
     <div class="clearfix"></div>
@@ -44,7 +44,7 @@
                                     <th>Target Selesai</th>
                                     <th>Dokumen</th>
 
-                                    <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+                                    <?php if ($this->session->userdata('role') == 'superadmin' && $this->session->userdata('role') == 'admin') : ?>
                                         <th>Action</th>
                                     <?php endif; ?>
                                 </tr>
@@ -65,7 +65,7 @@
                                         <td><?php echo $penugasanList->TGL_SELESAI ?></td>
                                         <!-- <td><a href="<?php echo base_url() ?>assets/doc/upload/<?php echo $penugasanList->DOKUMEN  ?>"><?php echo $penugasanList->DOKUMEN  ?></td> -->
                                         <td><a href="<?php echo base_url() ?>assets/doc/upload/<?php echo $penugasanList->DOKUMEN  ?>"><?php echo $penugasanList->DOKUMEN  ?></td>
-                                        <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+                                        <?php if ($this->session->userdata('role') == 'superadmin' && $this->session->userdata('role') == 'admin') : ?>
                                             <td width="6%">
                                                 <a href="<?php echo base_url() ?>penugasan/update?id=<?php echo $penugasanList->ID_TUGAS ?>" class="btn btn-info btn-xs">
                                                     <i class="fa fa-edit"></i>

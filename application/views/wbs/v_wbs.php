@@ -4,7 +4,7 @@
             <h1><i class="fa fa-calendar"></i> Rencana Kerja (WBS)</h1>
         </div>
     </div>
-    <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+    <?php if ($this->session->userdata('role') == 'superadmin' && $this->session->userdata('role') == 'admin') : ?>
         <a href="<?php echo base_url() ?>wbs/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah WBS</a>
     <?php endif; ?>
     <div class="clearfix"></div>
@@ -39,7 +39,7 @@
                                     <th>Tanggal Akhir</th>
                                     <th>Durasi</th>
                                     <th>Nama Pekerjaan</th>
-                                    <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+                                    <?php if ($this->session->userdata('role') == 'superadmin' && $this->session->userdata('role') == 'admin') : ?>
                                     <th>Action</th>
                                     <?php endif; ?>
                                 </tr>
@@ -55,7 +55,7 @@
                                         <td><?php echo $WbsList->TGL_AKHIR ?></td>
                                         <td><?php echo $WbsList->DURASI	 ?></td>
                                         <td><?php echo $WbsList->NAMA_PEKERJAAN ?></td>
-                                        <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+                                        <?php if ($this->session->userdata('role') == 'superadmin' && $this->session->userdata('role') == 'admin') : ?>
                                             <td width="6%">
                                                 <a href="<?php echo base_url() ?>wbs/update?id=<?php echo $WbsList->WEB_CODE ?>" class="btn btn-info btn-xs">
                                                     <i class="fa fa-edit"></i>
