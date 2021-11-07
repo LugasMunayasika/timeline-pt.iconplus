@@ -4,9 +4,12 @@
             <h1><i class="fa fa-calendar"></i> Rencana Kerja (WBS)</h1>
         </div>
     </div>
-    <?php if ($this->session->userdata('role') == 'superadmin' && $this->session->userdata('role') == 'admin') : ?>
-        <a href="<?php echo base_url() ?>wbs/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah WBS</a>
-    <?php endif; ?>
+    <?php if ($this->session->userdata('role') == 'superadmin') { ?>
+        <a href="<?php echo base_url() ?>wbs/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Data WBS</a>
+        <?php } 
+        else if ($this->session->userdata('role') == 'admin') { ?>
+            <a href="<?php echo base_url() ?>wbs/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Data WBS</a>
+            <?php } ?>  
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12 ">
@@ -39,7 +42,7 @@
                                     <th>Tanggal Akhir</th>
                                     <th>Durasi</th>
                                     <th>Nama Pekerjaan</th>
-                                    <?php if ($this->session->userdata('role') == 'superadmin' && $this->session->userdata('role') == 'admin') : ?>
+                                    <?php if ($this->session->userdata('role') == 'superadmin') : ?>
                                     <th>Action</th>
                                     <?php endif; ?>
                                 </tr>
@@ -55,7 +58,7 @@
                                         <td><?php echo $WbsList->TGL_AKHIR ?></td>
                                         <td><?php echo $WbsList->DURASI	 ?></td>
                                         <td><?php echo $WbsList->NAMA_PEKERJAAN ?></td>
-                                        <?php if ($this->session->userdata('role') == 'superadmin' && $this->session->userdata('role') == 'admin') : ?>
+                                        <?php if ($this->session->userdata('role') == 'superadmin') : ?>
                                             <td width="6%">
                                                 <a href="<?php echo base_url() ?>wbs/update?id=<?php echo $WbsList->WEB_CODE ?>" class="btn btn-info btn-xs">
                                                     <i class="fa fa-edit"></i>

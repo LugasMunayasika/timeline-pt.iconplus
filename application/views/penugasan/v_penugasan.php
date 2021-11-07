@@ -4,9 +4,12 @@
             <h1><i class="fa fa-tasks"></i> Data Penugasan</h1>
         </div>
     </div>
-    <?php if ($this->session->userdata('role') == 'superadmin' && $this->session->userdata('role') == 'admin') : ?>
+    <?php if ($this->session->userdata('role') == 'superadmin') { ?>
         <a href="<?php echo base_url() ?>penugasan/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Data Penugasan</a>
-    <?php endif; ?>
+        <?php } 
+        else if ($this->session->userdata('role') == 'admin') { ?>
+            <a href="<?php echo base_url() ?>penugasan/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Data Penugasan</a>
+            <?php } ?>    
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12 ">
@@ -44,9 +47,10 @@
                                     <th>Target Selesai</th>
                                     <th>Dokumen</th>
 
-                                    <?php if ($this->session->userdata('role') == 'superadmin' && $this->session->userdata('role') == 'admin') : ?>
+                                    <?php if ($this->session->userdata('role') == 'superadmin') : ?>
                                         <th>Action</th>
                                     <?php endif; ?>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,7 +69,7 @@
                                         <td><?php echo $penugasanList->TGL_SELESAI ?></td>
                                         <!-- <td><a href="<?php echo base_url() ?>assets/doc/upload/<?php echo $penugasanList->DOKUMEN  ?>"><?php echo $penugasanList->DOKUMEN  ?></td> -->
                                         <td><a href="<?php echo base_url() ?>assets/doc/upload/<?php echo $penugasanList->DOKUMEN  ?>"><?php echo $penugasanList->DOKUMEN  ?></td>
-                                        <?php if ($this->session->userdata('role') == 'superadmin' && $this->session->userdata('role') == 'admin') : ?>
+                                        <?php if ($this->session->userdata('role') == 'superadmin') : ?>
                                             <td width="6%">
                                                 <a href="<?php echo base_url() ?>penugasan/update?id=<?php echo $penugasanList->ID_TUGAS ?>" class="btn btn-info btn-xs">
                                                     <i class="fa fa-edit"></i>
