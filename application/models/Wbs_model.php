@@ -13,6 +13,7 @@ class Wbs_model extends CI_Model
 			'TGL_AKHIR'		=> $this->input->post('tgl_akhir'),
 			'DURASI'		=> $this->input->post('durasi'),
 			'NAMA_PEKERJAAN'		=> $this->input->post('nama_pekerjaan'),
+			'URAIAN_KEGIATAN'		=> $this->input->post('uraian_kegiatan'),
 		);
 
 		$this->db->insert('wbs', $data);
@@ -36,6 +37,7 @@ class Wbs_model extends CI_Model
 			'TGL_AKHIR'		=> $this->input->post('tgl_akhir'),
 			'DURASI'		=> $this->input->post('durasi'),
 			'NAMA_PEKERJAAN'		=> $this->input->post('nama_pekerjaan'),
+			'URAIAN_KEGIATAN'		=> $this->input->post('uraian_kegiatan'),
 		);
 
 		$this->db->where('WEB_CODE', $id)->update('wbs', $data);

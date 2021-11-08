@@ -35,6 +35,13 @@
                             <form method="post" action="<?php echo base_url() ?>wbs/submits" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" autocomplete= "off" >
                                 <input type="hidden" name="id" value="<?php echo $detail->WEB_CODE ?>">
                                 <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nama Pekerjaan
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" name="nama_pekerjaan" class="form-control col-md-7 col-xs-12" value="<?php echo $detail->NAMA_PEKERJAAN?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" >PIC
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -62,11 +69,12 @@
                                         <input type="integer" name="durasi" id="durasi" class="form-control col-md-7 col-xs-12" value="<?php echo $detail->DURASI ?>">
                                     </div>
                                 </div>
+                             
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nama Pekerjaan
-                                    </label>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Uraian Kegiatan
+                                    </label>    
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="nama_pekerjaan" class="form-control col-md-7 col-xs-12" value="<?php echo $detail->NAMA_PEKERJAAN?>">
+                                    <textarea type="text" name="uraian_kegiatan" class="form-control col-md-7 col-xs-12" id="uraian_kegiatan" rows="3" ></textarea>
                                     </div>
                                 </div>
                               

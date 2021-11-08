@@ -53,6 +53,7 @@ class Wbs extends CI_Controller
 			$this->form_validation->set_rules('tgl_akhir', 'Tanggal Akhir', 'trim|required');
 			$this->form_validation->set_rules('durasi', 'durasi', 'trim|required|integer');
 			$this->form_validation->set_rules('nama_pekerjaan', 'Nama Pekerjaan', 'trim|required');
+			$this->form_validation->set_rules('uraian_kegiatan', 'Uraian Kegiatan', 'trim|required');
 		if($this->Wbs_model->insert() == true){
 			$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
 			redirect('wbs');
@@ -70,6 +71,7 @@ public function submits()
 		$this->form_validation->set_rules('tgl_akhir', 'Tanggal Akhir', 'trim|required');
 		$this->form_validation->set_rules('durasi', 'durasi', 'trim|required|integer');
 		$this->form_validation->set_rules('nama_pekerjaan', 'Nama Pekerjaan', 'trim|required');
+		$this->form_validation->set_rules('uraian_kegiatan', 'Uraian Kegiatan', 'trim|required');
 
 		if ($this->form_validation->run() == true) {
 			if ($this->Wbs_model->update($this->input->post('id')) == true) {
