@@ -43,9 +43,11 @@
                                     <th>Durasi</th>
                                     <th>Nama Pekerjaan</th>
                                     <th>Uraian Kegiatan</th>
-                                    <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+                                    <?php if ($this->session->userdata('role') == 'superadmin') { ?>
                                     <th>Action</th>
-                                    <?php endif; ?>
+                                    <?php }else if ($this->session->userdata('role') == 'admin') { ?>
+                                    <th>Action</th>
+                                    <?php } ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,7 +62,7 @@
                                         <td><?php echo $WbsList->DURASI	 ?></td>
                                         <td><?php echo $WbsList->NAMA_PEKERJAAN ?></td>
                                         <td><?php echo $WbsList->URAIAN_KEGIATAN ?></td>
-                                        <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+                                        <?php if ($this->session->userdata('role') == 'superadmin') { ?>
                                             <td width="6%">
                                                 <a href="<?php echo base_url() ?>wbs/update?id=<?php echo $WbsList->WEB_CODE ?>" class="btn btn-info btn-xs">
                                                     <i class="fa fa-edit"></i>
@@ -69,7 +71,16 @@
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                             </td>
-                                        <?php endif; ?>
+                                        <?php }else if ($this->session->userdata('role') == 'admin') { ?>
+                                            <td width="6%">
+                                                <a href="<?php echo base_url() ?>wbs/update?id=<?php echo $WbsList->WEB_CODE ?>" class="btn btn-info btn-xs">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <button class="btn btn-danger btn-xs" onclick="sweets()">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        <?php } ?>
                                     </tr>
                                     <?php $no++; ?>
                                 <?php endforeach; ?>
