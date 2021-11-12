@@ -12,6 +12,7 @@ class Wbs extends CI_Controller
 		if ($this->session->userdata('logged_in') == false) {
 			redirect('welcome');
 		}
+		$this->load->library('pdf_wbs');
 	}
 
 	public function index()
@@ -23,20 +24,52 @@ class Wbs extends CI_Controller
 		$this->load->view('v_template', $data);
 	}
 
-	public function pdf()
-	{
-		$this->load->library('dompdf_gen');
-		$data['wbs'] = $this->Wbs_model->getList('wbs')->result('wbs');
-		$this->load->view('laporan_wbs', $data);
+	// public function pdf()
+	// {
+	// 	$this->load->library('dompdf_gen');
+	// 	$data['wbs'] = $this->Wbs_model->getList('wbs')->result('wbs');
+	// 	$this->load->view('laporan_wbs', $data);
 
-		$paper_size = 'A4';
-		$orientation = 'potrait';
-		$html = $this->output->get_output();
-		$this->dompdf->set_paper($paper_size, $orientation);
+	// 	$paper_size = 'A4';
+	// 	$orientation = 'potrait';
+	// 	$html = $this->output->get_output();
+	// 	$this->dompdf->set_paper($paper_size, $orientation);
 
-		$this->dompdf->load_html($html);
-		$this->dompdf->render();
-		$this->dompdf->stream('laporan_wbs.pdf', array('Attachment'));
+	// 	$this->dompdf->load_html($html);
+	// 	$this->dompdf->render();
+	// 	$this->dompdf->stream('laporan_wbs.pdf', array('Attachment'));
+	// }
+	public function panggil_fpdf(){
+		error_reporting(0);
+		$pdf = new FPDF('L','mm','Letter');
+		$pdf->AddPage();
+		$pdf->SetFont('Arial','B',16);
+		$pdf->Cell(0,7,'PDF DATA WBS',0,1,'C');
+		$pdf->Cell(10,7,'',0,1);
+		$pdf->SetFont('Arial','B',10);
+		$pdf->Cell(10,6,'No',1,0,'C');
+		$pdf->Cell(20,6,'Web Code',1,0,'C');
+		$pdf->Cell(20,6,'PIC',1,0,'C');
+		$pdf->Cell(30,6,'Tanggal Awal',1,0,'C');
+		$pdf->Cell(30,6,'Tanggal Akhir',1,0,'C');
+		$pdf->Cell(15,6,'Durasi',1,0,'C');
+		$pdf->Cell(50,6,'Nama Pekerjaan',1,0,'C');
+		$pdf->Cell(80,6,'Uraian Kegiatan',1,0,'C');
+		$pdf->SetFont('Arial','',10);
+        $wbs = $this->db->get('wbs')->result();
+        $no=0;
+        foreach ($wbs as $data){
+            $no++;
+            $pdf->Cell(10,6,$no,1,1, 'C');
+            $pdf->Cell(20,6,$data->WEB_CODE,1,0);
+            $pdf->Cell(20,6,$data->PIC,1,0);
+            $pdf->Cell(30,6,$data->TGL_AWAL,1,1);
+			$pdf->Cell(30,6,$data->TGL_AKHIR,1,0);
+            $pdf->Cell(15,6,$data->DURASI,1,0);
+            $pdf->Cell(50,6,$data->NAMA_PEKERJAAN,1,0);
+            $pdf->Cell(80,6,$data->URAIAN_KEGIATAN,1,1);
+        }
+        $pdf->Output();
 	}
 
 	public function create()
