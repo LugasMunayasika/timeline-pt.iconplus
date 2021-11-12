@@ -16,7 +16,7 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>List Data <small>WBS</small></h2>
-                    <a href="<?php echo base_url() ?>wbs/pdf" class="btn btn-success pull-right"><i class="fa-file-text"></i> PDF Data WBS</a>
+                    <a href="<?php echo base_url() ?>wbs/pdf" class="btn btn-success pull-right"><i class="fa fa-file"></i> PDF Data WBS</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -44,15 +44,9 @@
                                     <th>Durasi</th>
                                     <th>Nama Pekerjaan</th>
                                     <th>Uraian Kegiatan</th>
-<<<<<<< HEAD
                                     <?php if ($this->session->userdata('role') == 'superadmin') : ?>
-=======
-                                    <?php if ($this->session->userdata('role') == 'superadmin') { ?>
->>>>>>> 58a22146b12f8632cbbcd8a2e54a664314801597
                                     <th>Action</th>
-                                    <?php }else if ($this->session->userdata('role') == 'admin') { ?>
-                                    <th>Action</th>
-                                    <?php } ?>
+                                    <?php endif; ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,15 +61,11 @@
                                         <td><?php echo $WbsList->DURASI	 ?></td>
                                         <td><?php echo $WbsList->NAMA_PEKERJAAN ?></td>
                                         <td><?php echo $WbsList->URAIAN_KEGIATAN ?></td>
-<<<<<<< HEAD
                                         <?php if ($this->session->userdata('role') == 'superadmin') : ?>
                                             <td width="10%">
                                                 <button class="btn btn-warning btn-xs" onclick="sweets()">
                                                     <i class="fa fa-user"></i>
                                                 </button>
-=======
-                                        <?php if ($this->session->userdata('role') == 'superadmin') { ?>
-                                            <td width="6%">
                                                 <a href="<?php echo base_url() ?>wbs/update?id=<?php echo $WbsList->WEB_CODE ?>" class="btn btn-info btn-xs">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
@@ -83,17 +73,7 @@
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                             </td>
-                                        <?php }else if ($this->session->userdata('role') == 'admin') { ?>
-                                            <td width="6%">
->>>>>>> 58a22146b12f8632cbbcd8a2e54a664314801597
-                                                <a href="<?php echo base_url() ?>wbs/update?id=<?php echo $WbsList->WEB_CODE ?>" class="btn btn-info btn-xs">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-                                                <button class="btn btn-danger btn-xs" onclick="sweets()">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>
-                                            </td>
-                                        <?php } ?>
+                                        <?php endif; ?>
                                     </tr>
                                     <?php $no++; ?>
                                 <?php endforeach; ?>

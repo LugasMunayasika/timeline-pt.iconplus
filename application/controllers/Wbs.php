@@ -26,7 +26,7 @@ class Wbs extends CI_Controller
 	public function pdf()
 	{
 		$this->load->library('dompdf_gen');
-		$data['wbs'] = $this->Wbs_model->get_data('wbs')->result();
+		$data['wbs'] = $this->Wbs_model->getList('wbs')->result('wbs');
 		$this->load->view('laporan_wbs', $data);
 
 		$paper_size = 'A4';

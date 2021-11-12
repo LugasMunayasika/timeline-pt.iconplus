@@ -93,7 +93,7 @@
                         <?php endif; ?>
                         <?php if ($this->session->userdata('role') == 'superadmin') : ?>
                             <div class="menu_section">
-                                <h3>Admin</h3>
+                                <!-- <h3>Admin</h3> -->
                                 <ul class="nav side-menu">
                                 </ul>
                             </div>

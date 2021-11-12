@@ -24,9 +24,10 @@ class Wbs_model extends CI_Model
 		}
 	}
 
-	public function get_data($wbs)
+	public function getList()
 	{
-		return $this->db->get($WbsList);
+		return $query = $this->db->order_by('web_code', 'ASC')->get('wbs')->result();
+		return $query = $this->db->order_by('web_code', 'ASC')->get('pwbs')->result();
 	}
 
 	public function update()
@@ -47,7 +48,7 @@ class Wbs_model extends CI_Model
 			return false;
 		}
 	}
-	
+
 	public function getCount()
 	{
 		return $this->db->count_all('wbs');
