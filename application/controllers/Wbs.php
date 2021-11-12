@@ -54,16 +54,16 @@ class Wbs extends CI_Controller
 		$pdf->Cell(30,6,'Tanggal Akhir',1,0,'C');
 		$pdf->Cell(15,6,'Durasi',1,0,'C');
 		$pdf->Cell(50,6,'Nama Pekerjaan',1,0,'C');
-		$pdf->Cell(80,6,'Uraian Kegiatan',1,0,'C');
+		$pdf->Cell(80,6,'Uraian Kegiatan',1,1,'C');
 		$pdf->SetFont('Arial','',10);
         $wbs = $this->db->get('wbs')->result();
         $no=0;
         foreach ($wbs as $data){
             $no++;
-            $pdf->Cell(10,6,$no,1,1, 'C');
+            $pdf->Cell(10,6,$no,1,0, 'C');
             $pdf->Cell(20,6,$data->WEB_CODE,1,0);
             $pdf->Cell(20,6,$data->PIC,1,0);
-            $pdf->Cell(30,6,$data->TGL_AWAL,1,1);
+            $pdf->Cell(30,6,$data->TGL_AWAL,1,0);
 			$pdf->Cell(30,6,$data->TGL_AKHIR,1,0);
             $pdf->Cell(15,6,$data->DURASI,1,0);
             $pdf->Cell(50,6,$data->NAMA_PEKERJAAN,1,0);
