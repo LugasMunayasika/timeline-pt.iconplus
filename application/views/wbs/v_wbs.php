@@ -16,6 +16,7 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>List Data <small>WBS</small></h2>
+                    <a href="<?php echo base_url() ?>wbs/pdf" class="btn btn-success pull-right"><i class="fa-file-text"></i> PDF Data WBS</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -42,6 +43,7 @@
                                     <th>Tanggal Akhir</th>
                                     <th>Durasi</th>
                                     <th>Nama Pekerjaan</th>
+                                    <th>Uraian Kegiatan</th>
                                     <?php if ($this->session->userdata('role') == 'superadmin') : ?>
                                     <th>Action</th>
                                     <?php endif; ?>
@@ -58,8 +60,12 @@
                                         <td><?php echo $WbsList->TGL_AKHIR ?></td>
                                         <td><?php echo $WbsList->DURASI	 ?></td>
                                         <td><?php echo $WbsList->NAMA_PEKERJAAN ?></td>
+                                        <td><?php echo $WbsList->URAIAN_KEGIATAN ?></td>
                                         <?php if ($this->session->userdata('role') == 'superadmin') : ?>
-                                            <td width="6%">
+                                            <td width="10%">
+                                                <button class="btn btn-warning btn-xs" onclick="sweets()">
+                                                    <i class="fa fa-user"></i>
+                                                </button>
                                                 <a href="<?php echo base_url() ?>wbs/update?id=<?php echo $WbsList->WEB_CODE ?>" class="btn btn-info btn-xs">
                                                     <i class="fa fa-edit"></i>
                                                 </a>

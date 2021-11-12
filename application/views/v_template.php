@@ -12,6 +12,7 @@
     <link href="<?php echo base_url() ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="<?php echo base_url() ?>assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <!-- NProgress -->
     <link href=".<?php echo base_url() ?>assets/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->

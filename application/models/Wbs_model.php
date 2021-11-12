@@ -13,6 +13,7 @@ class Wbs_model extends CI_Model
 			'TGL_AKHIR'		=> $this->input->post('tgl_akhir'),
 			'DURASI'		=> $this->input->post('durasi'),
 			'NAMA_PEKERJAAN'		=> $this->input->post('nama_pekerjaan'),
+			'URAIAN_KEGIATAN'		=> $this->input->post('uraian_kegiatan'),
 		);
 
 		$this->db->insert('wbs', $data);
@@ -23,9 +24,9 @@ class Wbs_model extends CI_Model
 		}
 	}
 
-	public function getList()
+	public function get_data($wbs)
 	{
-		return $query = $this->db->order_by('web_code', 'ASC')->get('wbs')->result();
+		return $this->db->get($WbsList);
 	}
 
 	public function update()
@@ -36,6 +37,7 @@ class Wbs_model extends CI_Model
 			'TGL_AKHIR'		=> $this->input->post('tgl_akhir'),
 			'DURASI'		=> $this->input->post('durasi'),
 			'NAMA_PEKERJAAN'		=> $this->input->post('nama_pekerjaan'),
+			'URAIAN_KEGIATAN'		=> $this->input->post('uraian_kegiatan'),
 		);
 
 		$this->db->where('WEB_CODE', $id)->update('wbs', $data);
@@ -45,7 +47,7 @@ class Wbs_model extends CI_Model
 			return false;
 		}
 	}
-
+	
 	public function getCount()
 	{
 		return $this->db->count_all('wbs');

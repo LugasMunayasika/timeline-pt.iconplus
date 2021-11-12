@@ -32,6 +32,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nama Pekerjaan
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" name="nama_pekerjaan" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" >PIC
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -59,11 +66,12 @@
                                         <input type="integer" name="durasi" id="durasi" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
+                               
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nama Pekerjaan
-                                    </label>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Uraian Kegiatan
+                                    </label>    
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="nama_pekerjaan" class="form-control col-md-7 col-xs-12">
+                                    <textarea type="text" name="uraian_kegiatan" class="form-control col-md-7 col-xs-12" id="uraian_kegiatan" rows="3" ></textarea>
                                     </div>
                                 </div>
                               
