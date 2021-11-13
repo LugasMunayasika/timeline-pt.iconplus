@@ -37,6 +37,23 @@
     <!-- Select 2 -->
     <link href="<?php echo base_url() ?>assets/vendors/select2/select2.min.css" rel="stylesheet">
     <script src="<?php echo base_url() ?>assets/vendors/select2/select2.min.js"></script>
+    <script type="text/javascript" src="assets/grafik/pustaka_FSC/js/fusioncharts.js"></script>
+    <script type="text/javascript" src="assets/grafik/pustaka_FSC/js/themes/fusioncharts.theme.fint.js"></script>
+    <script type="text/javascript">
+        FusionCharts.ready(function () {
+            var G1 = new FusionCharts({
+                "type": "pie2d",
+                "renderAt": "lokasi3",
+                "width": "520",
+                "height": "400",
+                "dataFormat": "jsonurl",
+                "dataSource": "assets/grafik/db_to_json_jk.php"
+            }
+            )
+            G1.render();
+        }
+        )
+    </script>
 </head>
 
 <body class="nav-md">
