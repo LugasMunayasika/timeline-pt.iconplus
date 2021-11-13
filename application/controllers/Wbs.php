@@ -24,22 +24,8 @@ class Wbs extends CI_Controller
 		$this->load->view('v_template', $data);
 	}
 
-	// public function pdf()
-	// {
-	// 	$this->load->library('dompdf_gen');
-	// 	$data['wbs'] = $this->Wbs_model->getList('wbs')->result('wbs');
-	// 	$this->load->view('laporan_wbs', $data);
-
-	// 	$paper_size = 'A4';
-	// 	$orientation = 'potrait';
-	// 	$html = $this->output->get_output();
-	// 	$this->dompdf->set_paper($paper_size, $orientation);
-
-	// 	$this->dompdf->load_html($html);
-	// 	$this->dompdf->render();
-	// 	$this->dompdf->stream('laporan_wbs.pdf', array('Attachment'));
-	// }
 	public function panggil_fpdf(){
+		['title'] = 'PDF WBS';
 		error_reporting(0);
 		$pdf = new FPDF('L','mm','Letter');
 		$pdf->AddPage();
