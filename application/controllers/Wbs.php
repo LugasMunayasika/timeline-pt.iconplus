@@ -25,7 +25,6 @@ class Wbs extends CI_Controller
 	}
 
 	public function panggil_fpdf(){
-		['title'] = 'PDF WBS';
 		error_reporting(0);
 		$pdf = new FPDF('L','mm','Letter');
 		$pdf->AddPage();
