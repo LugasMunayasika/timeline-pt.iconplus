@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+require('./assets/php_spreadsheet/vendor/autoload.php');
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
 class Wbs extends CI_Controller
 {
 
@@ -13,6 +14,7 @@ class Wbs extends CI_Controller
 			redirect('welcome');
 		}
 		$this->load->library('pdf_wbs');
+		$this->load->helper(array('url','download'));
 	}
 
 	public function index()
@@ -55,6 +57,11 @@ class Wbs extends CI_Controller
             $pdf->Cell(80,6,$data->URAIAN_KEGIATAN,1,1);
         }
         $pdf->Output();
+	}
+	public function panggil_excel(){
+		$this->load->view('v_wbs_excel');
+		force_download('data_wbs.xlsx', NULL);
+		redirect('wbs');
 	}
 
 	public function create()

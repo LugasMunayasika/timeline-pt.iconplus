@@ -16,7 +16,8 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>List Data <small>WBS</small></h2>
-                    <a href="<?php echo base_url() ?>wbs/panggil_fpdf" class="btn btn-success pull-right"><i class="fa fa-file"></i> PDF Data WBS</a>
+                    <a href="<?php echo base_url() ?>wbs/panggil_fpdf" class="btn btn-danger pull-right"><i class="fa fa-file"></i> PDF Data WBS</a>
+                    <a href="<?php echo base_url() ?>wbs/panggil_excel" class="btn btn-success pull-right"><i class="fa fa-file"></i> Excel Data WBS</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
