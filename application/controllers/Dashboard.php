@@ -15,8 +15,12 @@ class Dashboard extends CI_Controller {
 		$data = array(
 			'title'			=> 'Dashboard',
 			'primary_view'	=> 'v_dashboard',
+			'admCount'	=> $this->Dashboard_model->getAdmCount(),
+			'admlkCount'	=> $this->Dashboard_model->getAdmLkCount(),
+			'admprCount'	=> $this->Dashboard_model->getAdmPrCount(),
 		);
 		$this->load->view('v_template', $data);
+		$this->load->view('v_dashboard', $data);
 	}
 
 	public function logout(){

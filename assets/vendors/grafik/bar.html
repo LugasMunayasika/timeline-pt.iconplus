@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <script type="text/javascript">
+        FusionCharts.ready(function () {
+            var G1 = new FusionCharts({
+                "type": "pie2d",
+                "renderAt": "lokasi3",
+                "width": "800",
+                "height": "500",
+                "dataFormat": "jsonurl",
+                "dataSource": "assets/vendors/grafik/db_to_json_admin.php"
+            }
+            )
+            G1.render();
+        }
+        )
+
+    </script>
+</head>
+
+<body>
+    <div id="lokasi3">di sini</div>
+</body>
+
+</html>

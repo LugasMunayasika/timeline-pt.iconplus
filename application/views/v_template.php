@@ -37,6 +37,7 @@
     <!-- Select 2 -->
     <link href="<?php echo base_url() ?>assets/vendors/select2/select2.min.css" rel="stylesheet">
     <script src="<?php echo base_url() ?>assets/vendors/select2/select2.min.js"></script>
+  
 </head>
 
 <body class="nav-md">
@@ -158,6 +159,9 @@
             <!-- /footer content -->
         </div>
     </div>
+    <!-- PUSTAKA FSC -->
+    <script type="<?php echo base_url() ?>assets/vendors/grafik/pustaka_FSC/js/fusioncharts.js"></script>
+    <script type="<?php echo base_url() ?>assets/vendors/grafik/pustaka_FSC/js/themes/fusioncharts.theme.fint.js"></script>
     <!-- jQuery -->
     <script src="<?php echo base_url() ?>assets/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
