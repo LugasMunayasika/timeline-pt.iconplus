@@ -22,7 +22,7 @@ class Login_model extends CI_Model {
 			$data = array(
 				'username'	=> $kueri->row()->USERNAME,
 				'logged_in'	=> true,
-				'role'		=> $kueri->row()->ROLE
+				'jabatan'		=> $kueri->row()->JABATAN
 			);
 			
 			$this->session->set_userdata($data);

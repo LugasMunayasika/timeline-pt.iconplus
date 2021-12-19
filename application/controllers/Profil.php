@@ -18,10 +18,10 @@ class Profil extends CI_Controller {
 		$this->load->view('profil/detail_profil', $data);
 	}
 
-	public function update(){
+	public function edit(){
 		$unm = $this->input->get('change_key');
 		$data['det'] = $this->Profil_model->getDetail($unm);
-		$data['title'] = 'Edit Profil';
+		$data['title'] = 'Edit Profile';
 		$data['primary_view'] = 'profil/update_profil';
 		$this->load->view('v_template', $data);
 	}
@@ -40,27 +40,27 @@ class Profil extends CI_Controller {
 				$config['max_size']  = '2000';
 				
 				$this->load->library('upload', $config);
-				$id_user = $this->User_model->getID($this->session->userdata('username'));
+				$id_petugas = $this->User_model->getID($this->session->userdata('username'));
 
 				if ($this->upload->do_upload('foto') == true){
-					if($this->Profil_model->update($id_user, $this->upload->data()) == true){
+					if($this->Profil_model->update($id_petugas, $this->upload->data()) == true){
 						$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
-						redirect('profil/update?change_key='.$this->input->post('id').'&signup=0');
+						redirect('profil/edit?change_key='.$this->input->post('id').'&signup=0');
 					}else{
 						$this->session->set_flashdata('announce', 'Gagal menyimpan data');
-						redirect('profil/update?change_key='.$this->input->post('id').'&signup=0');
+						redirect('profil/edit?change_key='.$this->input->post('id').'&signup=0');
 					}
 				}else{
 					$this->session->set_flashdata('announce', $this->upload->display_errors());
-					redirect('profil/update?change_key='.$this->input->post('id').'&signup=0');
+					redirect('profil/edit?change_key='.$this->input->post('id').'&signup=0');
 				}
 			} else {
 				$this->session->set_flashdata('announce', validation_errors());
-				redirect('profil/update?change_key='.$this->input->post('id').'&signup=0');
+				redirect('profil/edit?change_key='.$this->input->post('id').'&signup=0');
 			}
 		}
 	}
 }
 
-/* End of file Profil.php */
-/* Location: ./application/controllers/Profil.php */
+/* End of file Profile.php */
+/* Location: ./application/controllers/profil.php */

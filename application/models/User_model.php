@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_model extends CI_Model {
+	private $table = "admin";
 
 	public function getID($yah){
 		$query = $this->db->where('USERNAME', $yah)->get('admin')->row()->ID_ADMIN;
@@ -27,7 +28,7 @@ class User_model extends CI_Model {
 			'USERNAME'	=> $this->input->post('username'),
 			'PASSWORD'	=> md5($this->input->post('password')),
 			'LAST_LOGIN'=> NULL,
-			'ROLE'		=> $this->input->post('role'),
+			'JABATAN'		=> $this->input->post('jabatan'),
 			'FULLNAME'	=> $this->input->post('fullname'),
 			'JENKEL'	=> NULL,
 			'NO_TELP'	=> NULL,
@@ -48,14 +49,14 @@ class User_model extends CI_Model {
 		if($psw == true){
 			$dat = array(
 				'USERNAME'	=> $this->input->post('username'),
-				'ROLE'		=> $this->input->post('role'),
+				'JABATAN'		=> $this->input->post('jabatan'),
 				'FULLNAME'	=> $this->input->post('fullname'),
 				'PASSWORD'	=> md5($this->input->post('password'))
 			);
 		}else{
 			$dat = array(
 				'USERNAME'	=> $this->input->post('username'),
-				'ROLE'		=> $this->input->post('role'),
+				'JABATAN'		=> $this->input->post('jabatan'),
 				'FULLNAME'	=> $this->input->post('fullname'),
 			);
 		}
@@ -81,16 +82,17 @@ class User_model extends CI_Model {
 	}
 
 	public function getCount(){
-		return $this->db->where('ROLE','admin')->from('admin')->count_all_results();
+		return $this->db->count_all('admin');
 	}
 
 	public function delete($id){
-		$this->db->where('ID_ADMIN', $id)->delete('admin');
-		if($this->db->affected_rows() > 0){
-			return true;
-		}else{
-			return false;
-		}
+		// $this->db->where('ID_ADMIN', $id)->delete('admin');
+		// if($this->db->affected_rows() > 0){
+		// 	return true;
+		// }else{
+		// 	return false;
+		// }
+		return $this->db->delete($this->table, array("ID_ADMIN" => $id));
 	}
 
 	public function getDetail($id){

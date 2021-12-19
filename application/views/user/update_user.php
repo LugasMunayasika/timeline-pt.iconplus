@@ -33,7 +33,13 @@
                             }
                         ?>
                             <form method="post" action="<?php echo base_url() ?>user/submits" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" autocomplete= "off" >
-                                <input type="hidden" name="ids" value="<?php echo $detail->ID_ADMIN ?>">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >ID User
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input readonly type="text" name="ids" class="form-control col-md-7 col-xs-12" value="<?php echo $detail->ID_ADMIN ?>">
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nama Lengkap
                                     </label>
@@ -42,14 +48,16 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Role
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Jabatan
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <?php $role = $detail->ROLE ?>
-                                        <select class="form-control" name="role">
-                                            <option <?php if($role=='superadmin'){echo 'selected="selected"';} ?> value="superadmin">Direktur</option>
-                                            <option <?php if($role=='admin'){echo 'selected="selected"';} ?> value="admin">Manajer</option>
-                                            <option <?php if($role=='lowadmin'){echo 'selected="selected"';} ?> value="lowadmin">karyawan</option>
+                                    <?php $jabatan = $detail->JABATAN ?>
+                                        <select class="form-control" name="jabatan">
+                                            <option <?php if($jabatan=='Admin'){echo 'selected="selected"';} ?> value="Admin">Admin</option>
+                                            <option <?php if($jabatan=='Direktur'){echo 'selected="selected"';} ?> value="Direktur">Direktur</option>
+                                            <option <?php if($jabatan=='Manajer'){echo 'selected="selected"';} ?> value="Manajer">Manajer</option>
+                                            <option <?php if($jabatan=='Supervisor'){echo 'selected="selected"';} ?> value="Supervisor">Supervisor</option>
+                                            <option <?php if($jabatan=='Karyawan'){echo 'selected="selected"';} ?> value="Karyawan">Karyawan</option>
                                         </select>
                                     </div>
                                 </div>

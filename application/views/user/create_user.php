@@ -41,13 +41,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Role
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Jabatan
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <select class="form-control" name="role">
-                                            <option value="superadmin">Direktur</option>
-                                            <option value="admin">Manajer</option>
-                                            <option value="lowadmin">Karyawan</option>                                            
+                                        <select class="form-control" name="jabatan">
+                                            <option value="Admin">Admin</option>
+                                            <option value="Direktur">Direktur</option>
+                                            <option value="Manajer">Manajer</option>
+                                            <option value="Supervisor">Supervisor</option>
+                                            <option value="Karyawan">Karyawan</option>                                            
                                         </select>
                                     </div>
                                 </div>

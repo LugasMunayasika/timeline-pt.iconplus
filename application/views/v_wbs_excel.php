@@ -6,7 +6,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
 
-$column_header=["Web Code","PIC","Tanggal Awal","Tanggal Akhir","Durasi","Nama Pekerjaan","Uraian Kegiatan"];
+$column_header=["ID Proyek","PIC","Tanggal Awal","Tanggal Akhir","Durasi","ID Program","Nama Proyek"];
 $j=1;
 foreach($column_header as $x_value) {
 		$sheet->setCellValueByColumnAndRow($j,1,$x_value);
@@ -16,7 +16,7 @@ foreach($column_header as $x_value) {
 //ambil data dari db
 $kon = mysqli_connect("localhost","root","","database_timeline");
 
-$sql = "SELECT * FROM `wbs`";
+$sql = "SELECT * FROM `proyek`";
 $data = mysqli_query($kon,$sql);
 
 $i = 2;

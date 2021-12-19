@@ -2,19 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard_model extends CI_Model {
-	
-	public function getAdmCount(){
-		return $this->db->count_all('admin');
-	}
 
-	public function getAdmLkCount(){
-		return $this->db->where('JENKEL', 'L')->from('admin')->count_all_results();
-	}
 
-	public function getAdmPrCount(){
-		return $this->db->where('JENKEL', 'P')->from('admin')->count_all_results();
-	}
-	
 	public function checkUser($uname){
 		$query = $this->db->where('USERNAME', $uname)->get('admin');
 		if($query->num_rows() > 0){
@@ -22,6 +11,18 @@ class Dashboard_model extends CI_Model {
 		}else{
 			return false;
 		}
+	}
+
+	public function getListindex()
+	{
+		$this->db->select('*');
+		$this->db->from('program');
+		$this->db->join('proyek', 'proyek.ID_PROGRAM = program.ID_PROGRAM');
+		$this->db->join('monitoring', 'proyek.ID_PROYEK = monitoring.ID_PROYEK');
+		$this->db->order_by('TGL_AWAL','ASC');
+
+		return $this->db->get()->result();
+		// return $this->db->order_by('NO_MONITORING', 'ASC')->get('monitoring')->result();
 	}
 }
 

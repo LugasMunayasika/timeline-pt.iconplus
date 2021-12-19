@@ -12,25 +12,25 @@ class User extends CI_Controller {
 	}
 
 	public function index(){
-		if($this->session->userdata('role') == 'superadmin') {
+		//if($this->session->userdata('jabatan') == 'Direktur') {
 			$data['title'] = 'User';
 			$data['primary_view'] = 'user/v_user';
 			$data['list'] = $this->User_model->getList();
 			$data['total'] = $this->User_model->getCount();
 			$this->load->view('v_template', $data);	
-		}else{
-			$this->load->view('full_401_view');
-		}
+		//}else{
+		//	$this->load->view('full_401_view');
+		//}
 	}
 
 	public function create(){
-		if($this->session->userdata('role') == 'superadmin') {
+		//if($this->session->userdata('jabatan') == 'Direktur') {
 			$data['title'] = 'Tambah user';
 			$data['primary_view'] = 'user/create_user';
 			$this->load->view('v_template', $data);
-		}else{
-			$this->load->view('full_401_view');
-		}
+		//}else{
+		//	$this->load->view('full_401_view');
+		//}
 	}
 
 	public function submit(){
@@ -48,7 +48,7 @@ class User extends CI_Controller {
 					if($this->User_model->usernameCheck($this->input->post('username')) == true){
 						if($this->User_model->insert() == true){
 							$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
-							redirect('user/create');
+							redirect('user');
 						}else{
 							$this->session->set_flashdata('announce', 'Gagal menyimpan data');
 							redirect('user/create');
@@ -84,10 +84,10 @@ class User extends CI_Controller {
 					if($password == $cpassword){
 						if($this->User_model->usernameChecks($id) == true){
 							if($this->User_model->inserts($id, $psw) == true){
-								$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
-								redirect('user/update?tken='.$id);
+								$this->session->set_flashdata('announce', 'Berhasil memperbarui data');
+								redirect('user');
 							}else{
-								$this->session->set_flashdata('announce', 'Gagal menyimpan data');
+								$this->session->set_flashdata('announce', 'Gagal memperbarui data');
 								redirect('user/update?tken='.$id);
 							}
 						}else{
@@ -101,10 +101,10 @@ class User extends CI_Controller {
 				}else{
 					if($this->User_model->usernameChecks($id) == true){
 						if($this->User_model->inserts($id, $psw) == true){
-							$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
-							redirect('user/update?tken='.$id);
+							$this->session->set_flashdata('announce', 'Berhasil memperbarui data');
+							redirect('user');
 						}else{
-							$this->session->set_flashdata('announce', 'Gagal menyimpan data');
+							$this->session->set_flashdata('announce', 'Gagal memperbarui data');
 							redirect('user/update?tken='.$id);
 						}
 					}else{
@@ -119,18 +119,20 @@ class User extends CI_Controller {
 		}
 	}
 
-	public function delete(){
-		if($this->session->userdata('role') == 'superadmin') {
-			$rcgn = $this->input->get('rcgn');
-			if($this->User_model->delete($rcgn) == true){
-				$this->session->set_flashdata('announce', 'Berhasil menghapus data');
-				redirect('user');
-			}
-		}
+	public function delete($id_admin){
+		//if($this->session->userdata('jabatan') == 'Direktur') {
+			// $id = $this->input->get('rcgn');
+			// if($this->User_model->delete($id) == true){
+			// 	$this->session->set_flashdata('announce', 'Berhasil menghapus data');
+			// 	redirect('user');
+			// }
+			$this->User_model->delete($id_admin);
+			redirect('user');
+		//}
 	}
 
 	public function update(){
-		if($this->session->userdata('role') == 'superadmin') {
+		//if($this->session->userdata('jabatan') == 'Direktur') {
 			$id = $this->input->get('tken');
 			//CHECK : Data Availability
 			if($this->User_model->checkAvailability($id) == true){
@@ -141,17 +143,17 @@ class User extends CI_Controller {
 			$data['title'] = 'update user';
 			$data['detail'] = $this->User_model->getDetail($id);
 			$this->load->view('v_template', $data);
-		}else{
-			$this->load->view('full_401_view');
-		}
+		//}else{
+		//	$this->load->view('full_401_view');
+		//}
 	}
 
 	public function getDetail($id){
-		if($this->session->userdata('role') == 'superadmin') {
+		//if($this->session->userdata('jabatan') == 'Direktur') {
 			return $this->db->where('ID_ANGGOTA', $id)->get('anggota')->row();	
-		}else{
-			$this->load->view('full_401_view');
-		}
+		//}else{
+		//	$this->load->view('full_401_view');
+		//}
 		
 	}
 }

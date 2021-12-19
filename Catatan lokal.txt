@@ -1,0 +1,4 @@
+catatan projek buat di lokal:
+-manajer masih blm ada action di proyek
+-update monitoring blm generate
+-admin blm ada crud

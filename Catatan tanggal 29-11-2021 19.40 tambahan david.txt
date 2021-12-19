@@ -1,0 +1,7 @@
+inner joint dari laporan mingguan ke proyek
+tabel baru dari dana turun
+v_monitoring ngubah id monitoring ke id proyek
+create monitoring dan update monitoring
+controler dan model monitoring
+db yang ditamah tadi id proyek di laporan mingguan 
+db ditambahin dana turun di proyek

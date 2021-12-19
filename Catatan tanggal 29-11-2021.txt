@@ -1,0 +1,10 @@
+Buat innerjoin program - proyek
+Buat innerjoin proyek - anggota proyek
+Pindah sidebar laporan mingguan
+Buat innerjoin laporan mingguan - proyek
+Buat innerjoin monitoring - laporan mingguan
+Buat modul keuangan data yg diambil dari monitoring
+
+
+perubahan di lokal: nambah css timeline, nambah
+view template, ubah view dashboard, 

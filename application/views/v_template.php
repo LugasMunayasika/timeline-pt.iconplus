@@ -4,6 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
+    <link rel="shortcut icon" href="<?= base_url('assets'); ?>/images/icon1.png" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +38,6 @@
     <!-- Select 2 -->
     <link href="<?php echo base_url() ?>assets/vendors/select2/select2.min.css" rel="stylesheet">
     <script src="<?php echo base_url() ?>assets/vendors/select2/select2.min.js"></script>
-<<<<<<< HEAD
     <script type="text/javascript" src="assets/grafik/pustaka_FSC/js/fusioncharts.js"></script>
     <script type="text/javascript" src="assets/grafik/pustaka_FSC/js/themes/fusioncharts.theme.fint.js"></script>
     <script type="text/javascript">
@@ -45,8 +45,7 @@
             var G1 = new FusionCharts({
                 "type": "pie2d",
                 "renderAt": "lokasi3",
-                "width": "520",
-                "height": "400",
+                "width": '100%',
                 "dataFormat": "jsonurl",
                 "dataSource": "assets/grafik/db_to_json_jk.php"
             }
@@ -55,9 +54,22 @@
         }
         )
     </script>
-=======
-  
->>>>>>> b6ee7f6a5da8ddcd3772ee57e5c1149e2b321e9f
+    <script type="text/javascript">
+        FusionCharts.ready(function () {
+            var G1 = new FusionCharts({
+                "type": "doughnut2d",
+                "renderAt": "lokasi2",
+                "width": '100%',
+                "dataFormat": "jsonurl",
+                "dataSource": "assets/grafik/data_program.php"
+            }
+            )
+            G1.render();
+        }
+        )
+    </script>
+    <link href="<?php echo base_url() ?>assets/vendors/timelinecss/timeline.css" rel="stylesheet">
+    <script src="<?php echo base_url() ?>assets/vendors/timelinecss/timeline.css"></script>
 </head>
 
 <body class="nav-md">
@@ -67,10 +79,13 @@
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
                         <!-- <a href="#" class="site_title"><i class="fa fa-tasks"></i> <span>Timeline ICON+</span></a> -->
-                        <a href="#" class="site_title"> <span>Timeline ICON+</span></a>
+                        <br>
+                        <a style="margin-left : 20px;" href="#" class="site_logo"> <span> <img src="<?= base_url('assets'); ?>/images/icon3.png" class="img-fluid" alt="logo"></span></a>
                     </div>
                     <div class="clearfix"></div>
                     <!-- menu profile quick info -->
+                    <br>
+                    <br>
                     <div class="profile clearfix">
                         <div class="profile_pic">
                             <img src="<?php echo base_url() ?>assets/images/upload/profile/<?php echo $this->db->where('USERNAME', $this->session->userdata('username'))->get('admin')->row('PHOTO') ?>" style="height: 56px; widht: 50px" class="img-circle profile_img">
@@ -85,36 +100,39 @@
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
-                            <h3>Data Master</h3>
+                            <!-- <h3>Data Master</h3> -->
                             <ul class="nav side-menu">
                                 <li>
                                     <a href="<?php echo base_url() ?>dashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
                                 </li>
-                                <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+                                <?php if ($this->session->userdata('jabatan') == 'Direktur' || $this->session->userdata('jabatan') == 'Admin') : ?>
                                 <li>
                                     <a href="<?php echo base_url() ?>user"><i class="fa fa-users"></i> User</a>
                                 </li>
                                 <?php endif; ?>
                                 <li>
-                                    <a href="<?php echo base_url() ?>penugasan"><i class="fa fa-tasks"></i> Data Penugasan</a>
+                                    <a href="<?php echo base_url() ?>program"><i class="fa fa-tasks"></i> Program</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url() ?>wbs"><i class="fa fa-calendar"></i> WBS</a>
-
-                                <li>
-                                    <a href="<?php echo base_url() ?>timesheet"><i class="fa fa fa-desktop"></i> Timesheet</a>
+                                    <a href="<?php echo base_url() ?>proyek"><i class="fa fa-calendar"></i> Proyek</a>
                                 </li>
+                                <li>
+                                    <a href="<?php echo base_url() ?>laporan_mingguan"><i class="fa fa-file"></i> Laporan Mingguan</a>
+                                </li>
+                                    <li>
+                                    <a href="<?php echo base_url() ?>monitoring"><i class="fa fa fa-desktop"></i> Monitoring</a>
+                                </li>
+                                
                             </ul>
                         </div>
-                        <?php if ($this->session->userdata('role') == 'admin') : ?>
+                        <?php if ($this->session->userdata('jabatan') == 'Manager') : ?>
                             <div class="menu_section">
                                 <ul class="nav side-menu">
                                 </ul>
                             </div>
                         <?php endif; ?>
-                        <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+                        <?php if ($this->session->userdata('jabatan') == 'Direktur') : ?>
                             <div class="menu_section">
-                                <!-- <h3>Admin</h3> -->
                                 <ul class="nav side-menu">
                                 </ul>
                             </div>
@@ -163,7 +181,7 @@
             </div>
             <!-- /top navigation -->
             <!-- page content -->
-            <div class="right_col" role="main">
+            <div class="right_col" jabatan="main">
                 <?php
                 $this->load->view($primary_view);
                 ?>
@@ -179,9 +197,6 @@
             <!-- /footer content -->
         </div>
     </div>
-    <!-- PUSTAKA FSC -->
-    <script type="<?php echo base_url() ?>assets/vendors/grafik/pustaka_FSC/js/fusioncharts.js"></script>
-    <script type="<?php echo base_url() ?>assets/vendors/grafik/pustaka_FSC/js/themes/fusioncharts.theme.fint.js"></script>
     <!-- jQuery -->
     <script src="<?php echo base_url() ?>assets/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -241,7 +256,7 @@
 
 </html>
 
-<div id="profileModal" class="modal fade" role="dialog">
+<div id="profileModal" class="modal fade" jabatan="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">

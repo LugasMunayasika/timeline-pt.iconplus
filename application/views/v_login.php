@@ -20,8 +20,8 @@
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-5">
 					<div class="login-wrap p-4 p-md-5">
-		      	<div class="icon d-flex fa fa-sign-in align-items-center justify-content-center">
-		      		<!-- <span class="img" img src="<?php echo base_url() ?>assets/login/images/icon+.png"></span> -->
+		      	<div class="d-flex fa  justify-content-center">
+				 	 <img src="<?= base_url('assets'); ?>/images/icon3.png" class="img-fluid" alt="logo">
 		      	</div>
             <section class="login_content ">
             <form method="post" action="<?php echo base_url() ?>login/dologin">
@@ -35,6 +35,7 @@
                   ';
                 }
               ?>
+			  <br>
 		      	<h3 class="text-center mb-4">Login Timeline ICON+</h3>
 						<form action="#" class="login-form">
 		      		<div class="form-group">
@@ -47,9 +48,11 @@
               <div>
                 <button type="submit" name="login" class="btn btn-primary btn-lg btn-block" value="Login">Login</button>
                 <!-- <input type="submit" name="login" class="btn btn-warning submit pull-right" value="Login" /> -->
-              </div>
-
+              </div> <br>
 	          </form>
+			  <div>
+				<a href="https://api.whatsapp.com/send?phone=085270047977" class="text-center mb-2">Lupa password? </a>
+			  </div>
 	        </div>
 				</div>
 			</div>
